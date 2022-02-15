@@ -1,0 +1,88 @@
+.userImg-review {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-div {
+  display: flex;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+  padding: 1vh 1vw;
+  margin-bottom: 2vh;
+}
+
+.main-review {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1vw;
+}
+
+.headerText-reviews {
+    margin-top: 2vh;
+}
+
+.ratingandtitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rating {
+    margin-right: 0.5vw;
+}
+
+.addReview-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1vh 1vw;
+    background-color: white;
+    margin-bottom: 2vh;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+
+}
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.modal-content {
+    width: 50vw;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.15);
+
+}
+
+.modal-body-header {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.modal-rating {
+    margin-right: 2.5vw;
+}
+
+#mainreviewcontent {
+    width: 95%;
+}
+
+.date {
+    color: gray;
+}
+
+.reviewtitle {
+    color: black;
+}

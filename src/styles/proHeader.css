@@ -1,0 +1,122 @@
+.Pro-user-Image {
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.Pro-user-con {
+  background-color: white;
+  display: flex;
+  border-radius: 0.8rem;
+  margin-top: 2vh;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.15);
+  padding: 1vh;
+
+  height: fit-content;
+}
+
+.img-text {
+  display: flex;
+  align-items: center;
+  margin-left: 1vw;
+}
+
+.selected {
+  border-bottom: 2px solid rgb(0, 0, 0);
+  color: black !important;
+}
+
+.view-selector {
+  margin-bottom: 1vh;
+}
+
+.view-selector > div > h2 {
+  color: gray;
+  text-align: center;
+}
+
+body {
+  background-color: rgb(233, 233, 233);
+}
+
+.rating-div {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.rating-div > h2 {
+  margin-bottom: 1px;
+}
+
+.product-div {
+  width: 50vw;
+  height: auto;
+  padding: 1vh 1vw;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2vh;
+}
+
+.products-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.productNotOwned {
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.25);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2vh;
+}
+
+.programprice {
+  /* background-color: rgba(5, 255, 59, 1); */
+  width: fit-content;
+  padding: 0.25vh 0.25vw;
+  border-radius: 0.5rem;
+  margin-left: 0.25vw;
+  border: 0.25px solid;
+}
+
+.program-footer {
+  display: flex;
+  flex-direction: row;
+  margin: 1vh 0;
+  justify-content: space-between;
+}
+
+.programbtn {
+  background-color:#0d6efd;
+  color: white;
+  padding: 0.25vh 0.25vw;
+  border-radius: 0.5rem;
+  border: 0.25px solid black;
+}
+
+.programbtn:hover {
+  padding: 0.25vh 0.25vw;
+  border-radius: 0.5rem;
+  color:black;
+  cursor: pointer;
+  border: 0.25px solid black;
+}
+
+.program-footer > h6 {
+  margin-bottom: 0;
+}
+
+.btnandprice {
+  display: flex;
+}
+

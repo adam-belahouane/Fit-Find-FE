@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import LoginPage from './components/loginPage';
+import SignUpPage from './components/SignUpPage';
+import { BrowserRouter, Routes, Route, Router} from 'react-router-dom'
+import ProPage from './components/proView/proPage';
+import MyNavbar from './components/myNavbar';
+import HomePage from './components/HomePage';
+import { useState } from 'react';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
+import createAuthRefreshInterceptor from 'axios-auth-refresh';
+import NormalPage from './components/normalUserView/normalPage';
+import Confirmed from './components/Confirmed';
+import Cancel from './components/Cancel';
+
+const url = process.env.REACT_APP_BE_URL;
 
 function App() {
+
+  const isLoggedIn = useSelector(state => state.login.isloggedin)
+  const role = useSelector(state => state.login.role)
+
+  axios.defaults.withCredentials = true
+
+  const refreshAuthLogic = (failedRequest) => axios.post(`${url}/users/refreshToken`,).then(tokenRefreshResponse => {
+    return Promise.resolve()
+  })
+
+  const refreshAuthLogicPro = (failedRequest) => axios.post(`${url}/proUser/refreshToken`,).then(tokenRefreshResponse => {
+    return Promise.resolve()
+  })
+
+  createAuthRefreshInterceptor(axios, role === "normal"?refreshAuthLogic:refreshAuthLogicPro)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MyNavbar/>
+    <Routes>
+      <Route path="/" element={<HomePage/>}/>
+      <Route path="/login" element={<LoginPage/>}/>
+      <Route path="/User/me/norm" element={<NormalPage/>} />
+      <Route path="/user/:userId" element={<ProPage/>} />
+      <Route path="/signup" element={<SignUpPage/>} />
+      <Route path="/confirmed/:programId" element={<Confirmed/>} />
+      <Route path="/cancel" element={<Cancel/>} />
+    </Routes>
     </div>
-  );
+  )
 }
 
 export default App;
