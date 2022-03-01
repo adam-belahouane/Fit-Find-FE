@@ -9,7 +9,7 @@ const NormalLoginPage = ({setView}) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const id = useSelector(state => state.login.url)
-  const serverUrl = "http://localhost:3001";
+  const url = process.env.REACT_APP_BE_URL;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -20,7 +20,7 @@ const NormalLoginPage = ({setView}) => {
     };
 
     try {
-      const response = await fetch(`${serverUrl}/users/login`, {
+      const response = await fetch(`${url}/users/login`, {
         method: 'POST',
         body: JSON.stringify(details),
         headers: {'Content-Type': 'application/json'},
