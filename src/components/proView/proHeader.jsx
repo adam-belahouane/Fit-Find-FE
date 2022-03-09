@@ -45,12 +45,13 @@ const ProHeader = () => {
               value={Math.round(overallreview)}
               readOnly
               size="small-medium"
+              className="stars"
             />
           )}
         </div>
         <div className="btn-con">
           {/* <Button>Message</Button> */}
-          <Button>Booking</Button>
+          {/* <Button>Booking</Button> */}
         </div>
       </div>
     </div>

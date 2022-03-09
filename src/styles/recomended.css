@@ -29,3 +29,10 @@
     border-radius: 50%;
     object-fit: cover;
 }
+
+
+@media only screen and (max-width: 922px) {
+    .rec-users-list {
+        display: none;
+    }
+}

@@ -80,7 +80,7 @@ const MyNavbar = () => {
                 <NavDropdown.Item href="/signup">Sign up</NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <Form className="d-flex">
+            {/* <Form className="d-flex">
               <FormControl
                 type="search"
                 placeholder="Search"
@@ -88,7 +88,7 @@ const MyNavbar = () => {
                 aria-label="Search"
               />
               <Button variant="outline-success">Search</Button>
-            </Form>
+            </Form> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>
@@ -96,7 +96,7 @@ const MyNavbar = () => {
   } else {
     return (
       <Navbar bg="light" className="nav-bar" expand="lg">
-        <Container fluid>
+        <Container className="con-nav" fluid>
           <Navbar.Brand href="#">Fit Find</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -110,7 +110,7 @@ const MyNavbar = () => {
               <Nav.Link href="/user/me">profile</Nav.Link>:<Nav.Link href="/User/me/norm">profile</Nav.Link>}
               <Nav.Link onClick={() => logout()}>Log out</Nav.Link>
             </Nav>
-            <Form className="d-flex">
+            {/* <Form className="d-flex">
               <FormControl
                 type="search"
                 placeholder="Search"
@@ -118,7 +118,7 @@ const MyNavbar = () => {
                 aria-label="Search"
               />
               <Button variant="outline-success">Search</Button>
-            </Form>
+            </Form> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>
