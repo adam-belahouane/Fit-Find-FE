@@ -12,7 +12,18 @@
 
 .nav-bar {
     height: 7.5vh;
+    z-index: 2;
+    background-color: whitesmoke !important  ;
 }
+
+.navbar {
+    background-color: whitesmoke;
+}
+
+.navbar > .container-fluid {
+    background-color: whitesmoke;
+} 
+
 
 .marker-con {
     background-color: whitesmoke;
