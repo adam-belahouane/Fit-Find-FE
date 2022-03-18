@@ -10,18 +10,23 @@
     align-items: center;
 }
 
-.nav-bar {
-    height: 7.5vh;
-    z-index: 2;
-    background-color: whitesmoke !important  ;
+.nav-img {
+    height: 6vh;
+    margin-right: -1vw;
 }
 
-.navbar {
-    background-color: whitesmoke;
+.nav-bar {
+    position: sticky;
+    top:0;
+    height: 6.5vh;
+    width: 100%;
+    z-index: 2;
+    background-color: white !important  ;
+    
 }
 
 .navbar > .container-fluid {
-    background-color: whitesmoke;
+    background-color: white;
 } 
 
 

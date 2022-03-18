@@ -6,7 +6,7 @@ import MarkerDiv from "./markerDiv";
 const libraries = ["places"];
 const mapContainerStyle = {
   width: "100vw",
-  height: "92.5vh",
+  height: "93.5vh",
 };
 
 // { lat: 51.49844507, lng: -0.0774065 },
