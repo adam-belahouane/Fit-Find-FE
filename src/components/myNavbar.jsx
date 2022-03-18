@@ -12,6 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "../styles/homepage.css";
 import { setIsLoggedInAction, setRedirectAction, setRoleAction, setUserAction } from "../actions";
 import { useNavigate } from "react-router-dom";
+import logo from "../FFlogo.png"
 
 const MyNavbar = () => {
   const url = process.env.REACT_APP_BE_URL;
@@ -66,7 +67,7 @@ const MyNavbar = () => {
     return (
       <Navbar bg="light" className="nav-bar" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#">Fit Find</Navbar.Brand>
+          <Navbar.Brand href="/"><img src={logo} className="nav-img" /></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
