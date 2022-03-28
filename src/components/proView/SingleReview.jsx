@@ -35,7 +35,7 @@ const SingleReview = ({ review }) => {
   return (
     <div className="review-div">
       <div>
-        <img src="https://via.placeholder.com/150" className="userImg-review" />
+        <img src="https://icon-library.com/images/anonymous-person-icon/anonymous-person-icon-18.jpg" className="userImg-review" />
       </div>
       <div className="singlePost">
         <div className="headerOfPosts">
