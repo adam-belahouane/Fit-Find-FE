@@ -13,7 +13,7 @@ const SinglePost = ({First, Last, avatar, post}) => {
             <div className="userimg">
             <div className="img">
                 {avatar?
-            <img src={avatar} className="userImg" />:<img src="https://via.placeholder.com/150" className="userImg" />}
+            <img src={avatar} className="userImg" />:<img src="https://icon-library.com/images/anonymous-person-icon/anonymous-person-icon-18.jpg" className="userImg" />}
             </div>
             
             </div>

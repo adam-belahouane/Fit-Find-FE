@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import GoogleMapReact from "google-map-react";
 import "../styles/homepage.css";
 import MarkerDiv from "./markerDiv";
+import {css} from "@emotion/react"
+import PuffLoader from "react-spinners/PuffLoader"
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -18,6 +20,12 @@ const options = {
   timeout: 5000,
   maximumAge: 0,
 };
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
 const HomePage = () => {
   const url = process.env.REACT_APP_BE_URL;
@@ -60,7 +68,7 @@ const HomePage = () => {
   }, []);
 
   if (markers.length === 0) {
-    return <h1>Loading...</h1>;
+    return <div className="loader"><PuffLoader color="blue" loading={true} size={150}/></div> ;
   } else {
     return (
       <div style={mapContainerStyle}>

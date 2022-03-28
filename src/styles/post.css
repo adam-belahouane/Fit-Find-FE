@@ -16,7 +16,7 @@
   display: flex;
   background-color: white;
   border-radius: 1rem;
-  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+  border: solid lightgray 1px;
   padding: 1vh 1vw;
   margin-bottom: 2vh;
 }
@@ -145,19 +145,19 @@ h3 {
     margin: 0 2vw;
 }
 
-@media only screen and (max-width: 922px) {
+@media only screen and (max-width: 992px) {
   .main-profile-con {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80vw;
+    width: 720px;
   }
   
   .header-profile-con {
     width: 100%;
   }
   .recommed-users {
-    width: 0vw;
+    display: none;
   }
 }
 
