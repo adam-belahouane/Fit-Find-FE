@@ -13,12 +13,6 @@ body {
   z-index: 2;
 }
 
-.con {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .nav-img {
   height: 5vh;
   border-radius: 0.4rem;

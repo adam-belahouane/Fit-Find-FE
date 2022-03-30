@@ -44,68 +44,70 @@ const NormalLoginPage = ({ setView }) => {
       alert("Wrong credentials, try again!");
     }
   };
+
+  const loginWithDemo = () => {
+    setEmail("adam@hotmail.com");
+    setPassword("adam1234");
+    login();
+  };
   return (
     <>
-      <Row className="mt-3 view-selector">
-        <Col>
-          <h2 className="selected" onClick={() => setView("normal")}>
-            Normal
-          </h2>
-        </Col>
-        <Col>
-          <h2 onClick={() => setView("pro")}>Pro</h2>
-        </Col>
-      </Row>
       <div className="con">
+        <Row className="mt-3 view-selector">
+          <Col>
+            <h2 className="selected" onClick={() => setView("normal")}>
+              Normal
+            </h2>
+          </Col>
+          <Col>
+            <h2 onClick={() => setView("pro")}>Pro</h2>
+          </Col>
+        </Row>
         <div className="signup-con">
           <h1>Sign in</h1>
           <p>Find Fitness professionals near you</p>
-          <form className="login-form">
+          <div className="login-form">
             <div className="inputbox">
-              <input type="email" name="email" id="email" />
-              <label className="label">Email</label>
-            </div>
-            <div className="inputbox">
-              <input type="password" name="password" id="email" />
-              <label className="label">Password</label>
-            </div>
-            <a className="forgotPassword" href="">Forgot password?</a>
-            <button onClick={login} className="sign-in-btn">
-            Sign in
-          </button>
-          </form>
-          {/* <Form className="align-self-center">
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                required
+              <input
                 type="email"
-                placeholder="Enter email"
-                onChange={(e) => setEmail(e.target.value)}
+                name="email"
+                id="email"
+                required
                 value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
+              <label className="labelforlogin">Email</label>
+            </div>
+            <div className="inputbox">
+              <input
                 type="password"
-                placeholder="Password"
+                name="password"
+                id="password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-            </Form.Group> */}
-          
-          {/* <Button variant="primary"  onClick={() => login()}>
-          Login
-        </Button>
-        <Link to="/signup">
-        <Button className="mx-3" variant="primary">
-          Sign up
-        </Button>
-        </Link> */}
-          {/* </Form> */}
+              <label className="labelforlogin">Password</label>
+            </div>
+            <a className="forgotPassword blue-link-highlight" href="">
+              Forgot password?
+            </a>
+            <button onClick={login} className="sign-in-btn">
+              Sign in
+            </button>
+          </div>
+          <div className="or-demo">
+            <span className="or-text">or</span>
+          </div>
+          <button onClick={loginWithDemo} className="sign-in-btn">
+            Demo sign in
+          </button>
+        </div>
+        <div className="join-now">
+          New to FitFind?{" "}
+          <a href="/signup" className="blue-link-highlight">
+            Join Now
+          </a>
         </div>
       </div>
     </>

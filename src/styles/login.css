@@ -1,137 +1,177 @@
 .signup-con {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
-    width: 352px;
-    padding: 24px;
-    margin-top: 10vh;
-    flex-direction: column;
-    
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+  width: 352px;
+  padding: 24px;
+  flex-direction: column;
 }
 
-.forgotPassword {
+
+.con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.blue-link-highlight {
     all: unset;
-    margin-top: 8px;
     padding: 0 8px;
-    color: #0A66C2;
+    color: #0a66c2;
     font-weight: 600;
     box-sizing: border-box;
-    position: relative;
-    left: -8px;
     width: fit-content;
-    border-radius:28px ;
+    border-radius: 28px;
     cursor: pointer;
-    transition: .2s all;
+    transition: 0.2s all;
 }
 
-.forgotPassword:hover {
+.blue-link-highlight:hover {
     background: #d0e8ff !important;
     text-decoration: underline;
 }
 
+.forgotPassword {
+  margin-top: 8px;
+  position: relative;
+  left: -8px;
+}
 .login-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-#email {
-    all: unset;
-    border: 1px solid rgba(0,0,0,0.6);
-    border-radius: 4px;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 28px 12px 6px;
-    position: relative;
-    z-index: 1;
-    height: 52px;
+.inputbox > input {
+  all: unset;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 28px 12px 6px;
+  position: relative;
+  z-index: 1;
+  height: 52px;
 }
 
-#email:focus {
-    box-shadow: 0 0 0 1px #0a66c2;
+.inputbox > input:focus {
+  box-shadow: 0 0 0 1px #0a66c2;
 }
 
 .inputbox {
-    margin-top: 24px;
-    position: relative;
+  margin-top: 24px;
+  position: relative;
 }
 
-.label {
-    font-size: 1.5rem;
-    line-height: 20px;
-    font-weight: 400;
-    color: rgba(0,0,0,0.6);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    padding: 14px 0 0 12px;
-    margin: 0;
-    transition: .2s all;
+.labelforlogin {
+  font-size: 1.5rem;
+  line-height: 20px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 14px 0 0 12px;
+  margin: 0;
+  transition: 0.2s all;
 }
 
-input:active+label {
-    top: -10px;
-    font-size: 1rem;
-    line-height: 1.42857;
-    font-weight: 400;
-    color: rgba(0,0,0,0.9);
+input:focus + .labelforlogin,
+input:valid + .labelforlogin,
+input:active + .labelforlogin,
+input:-webkit-autofill + .labelforlogin {
+  content: none;
+  top: -10px;
+  font-size: 1rem;
+  line-height: 1.42857;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.9);
 }
-
-input:focus+label, input:invalid+label {
-    content: '';
-    top: -10px;
-    font-size: 1rem;
-    line-height: 1.42857;
-    font-weight: 400;
-    color: rgba(0,0,0,0.9);
-}
-
 
 .labelinput {
-    display: flex;
-    flex-direction: column;
-    padding: 0vh 0.75vw;
+  display: flex;
+  flex-direction: column;
+  padding: 0vh 0.75vw;
 }
 
 .flexrow {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .signup-btn {
-    padding: 1vh 1vw;
-    margin: 2vh 0.75vw;
-    border-radius: 1rem;
-    background-color: rgb(148, 217, 240);
+  padding: 1vh 1vw;
+  margin: 2vh 0.75vw;
+  border-radius: 1rem;
+  background-color: rgb(148, 217, 240);
 }
 
 .signup-btn:hover {
-    color: white;
+  color: white;
 }
 
 .sign-in-btn {
-    all: unset;
-    background-color: #0A66C2;
-    padding: 0px 24px;
-    color: white;
-    cursor: pointer;
-    display: inline-block;
-    border-radius: 28px;
-    width: 100%;
-    height: 52px;
-    line-height: 52px;
-    box-sizing: border-box;
-    text-align: center;
-    margin-top: 16px;
-    font-weight: 600;
-    transition: .2s  all;
+  all: unset;
+  background-color: #0a66c2;
+  padding: 0px 24px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 28px;
+  width: 100%;
+  height: 52px;
+  line-height: 52px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 16px;
+  font-weight: 600;
+  transition: 0.2s all;
 }
 
 .sign-in-btn:hover {
-    background: #004182 !important;
+  background: #004182 !important;
+}
+
+.or-demo {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 4px;
+  margin-top: 12px;
+  width: 100%;
+}
+
+.or-demo::before {
+  content: "";
+  width: 50%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.or-demo::after {
+  content: "";
+  width: 50%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.or-text {
+  font-size: 1rem;
+  line-height: 1.42857;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0 12px;
+}
+
+.join-now {
+  text-align: center;
+  margin-top: 32px;
+  width: 352px;
 }
