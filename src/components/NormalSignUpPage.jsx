@@ -3,6 +3,7 @@ import { useState } from "react";
 
 const NormalSignUpPage = ({ setView }) => {
   const url = process.env.REACT_APP_BE_URL;
+  const [nextPage, setNextPage] = useState(false);
   const [user, setUser] = useState({
     firstName: "",
     lastname: "",
@@ -20,7 +21,8 @@ const NormalSignUpPage = ({ setView }) => {
     });
   };
 
-  const handleSignupToServer = async () => {
+  const handleSignupToServer = async (event) => {
+    event.preventDefault();
     try {
       let response = await fetch(url + "/users/register", {
         method: "POST",
@@ -39,62 +41,110 @@ const NormalSignUpPage = ({ setView }) => {
 
   return (
     <>
-      <Row className="mt-3 view-selector">
-        <Col>
-          <h2 className="selected" onClick={() => setView("normal")}>
+      <div className="con">
+        <div className="login-view-selector">
+          <h2
+            className="view-selector-btn"
+            id="selected"
+            onClick={() => setView("normal")}
+          >
             Normal
           </h2>
-        </Col>
-        <Col>
-          <h2 onClick={() => setView("pro")}>Pro</h2>
-        </Col>
-      </Row>
-
-      <div className="con">
+          <h2 className="view-selector-btn" onClick={() => setView("pro")}>
+            Pro
+          </h2>
+        </div>
         <div className="signup-con">
-          <div className="flexrow">
-            <div className="labelinput">
-              <p className="label">First Name</p>
-              <input
-                type="text"
-                placeholder="First Name"
-                value={user.firstName}
-                onChange={(e) => handleSignUpInput("firstName", e.target.value)}
-              />
-            </div>
-            <div className="labelinput">
-              <p className="label">Last Name</p>
-              <input
-                type="text"
-                placeholder="Last Name"
-                value={user.lastname}
-                onChange={(e) => handleSignUpInput("lastname", e.target.value)}
-              />
-            </div>
+          {nextPage === false ? (
+            <>
+            <form className="signup-form">
+              <h1>Sign up</h1>
+              <p>Find Fitness professionals near you</p>
+              <div className="inputbox">
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  required
+                  value={user.email}
+                  onChange={(e) => handleSignUpInput("email", e.target.value)}
+                />
+                <label className="labelforlogin">Email</label>
+              </div>
+              <div className="inputbox">
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  required
+                  value={user.password}
+                  onChange={(e) =>
+                    handleSignUpInput("password", e.target.value)
+                  }
+                />
+                <label className="labelforlogin">Password</label>
+              </div>
+
+              <button
+                className="big-blue-btn"
+                onClick={() => setNextPage(true)}
+              >
+                Continue
+              </button>
+            </form>
+            <div className="login-now">
+            Already on FitFind?{" "}
+            <a href="/login" className="blue-link-highlight">
+              Sign in
+            </a>
           </div>
-          <div className="flexrow">
-            <div className="labelinput">
-              <p className="label">Email</p>
-              <input
-                type="text"
-                placeholder="Email"
-                value={user.email}
-                onChange={(e) => handleSignUpInput("email", e.target.value)}
-              />
-            </div>
-            <div className="labelinput">
-              <p className="label">Password</p>
-              <input
-                type="password"
-                placeholder="Password"
-                value={user.password}
-                onChange={(e) => handleSignUpInput("password", e.target.value)}
-              />
-            </div>
-          </div>
-          <button className="signup-btn" onClick={() => handleSignupToServer()}>
-            Sign Up
-          </button>
+          </>
+          ) : (
+            <form className="signup-form">
+              <h1>Sign up</h1>
+              <p>Find Fitness professionals near you</p>
+              <div className="inputbox">
+                <input
+                  type="text"
+                  name="firstname"
+                  id="email"
+                  required
+                  value={user.firstName}
+                  onChange={(e) =>
+                    handleSignUpInput("firstName", e.target.value)
+                  }
+                />
+                <label className="labelforlogin">First Name</label>
+              </div>
+              <div className="inputbox">
+                <input
+                  type="text"
+                  name="lastname"
+                  id="password"
+                  required
+                  value={user.lastname}
+                  onChange={(e) =>
+                    handleSignUpInput("lastname", e.target.value)
+                  }
+                />
+                <label className="labelforlogin">Last Name</label>
+              </div>
+
+              <button
+                className="big-blue-btn"
+                onClick={(event) => handleSignupToServer(event)}
+              >
+                Join
+              </button>
+
+              <button
+                className="big-back-btn"
+                onClick={() => setNextPage(false)}
+              >
+                Back
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </>

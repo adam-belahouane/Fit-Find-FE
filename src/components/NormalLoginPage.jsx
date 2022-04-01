@@ -13,7 +13,8 @@ const NormalLoginPage = ({ setView }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const login = async () => {
+  const login = async (event) => {
+    event.preventDefault()
     const details = {
       email: email,
       password: password,
@@ -53,23 +54,17 @@ const NormalLoginPage = ({ setView }) => {
   return (
     <>
       <div className="con">
-        <Row className="mt-3 view-selector">
-          <Col>
-            <h2 className="selected" onClick={() => setView("normal")}>
-              Normal
-            </h2>
-          </Col>
-          <Col>
-            <h2 onClick={() => setView("pro")}>Pro</h2>
-          </Col>
-        </Row>
+        <div className="login-view-selector">
+          <h2 className="view-selector-btn" id="selected" onClick={() => setView("normal")}>Normal</h2>
+          <h2 className="view-selector-btn" onClick={() => setView("pro")}>Pro</h2>
+        </div>
         <div className="signup-con">
           <h1>Sign in</h1>
           <p>Find Fitness professionals near you</p>
-          <div className="login-form">
+          <form className="login-form">
             <div className="inputbox">
               <input
-                type="email"
+                type="text"
                 name="email"
                 id="email"
                 required
@@ -92,14 +87,14 @@ const NormalLoginPage = ({ setView }) => {
             <a className="forgotPassword blue-link-highlight" href="">
               Forgot password?
             </a>
-            <button onClick={login} className="sign-in-btn">
+            <button onClick={(event) => login(event)} className="big-blue-btn">
               Sign in
             </button>
-          </div>
+          </form>
           <div className="or-demo">
             <span className="or-text">or</span>
           </div>
-          <button onClick={loginWithDemo} className="sign-in-btn">
+          <button onClick={loginWithDemo} className="big-blue-btn">
             Demo sign in
           </button>
         </div>

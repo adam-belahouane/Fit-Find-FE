@@ -61,17 +61,18 @@ const ProSignUpPage = ({ setView }) => {
   };
   return (
     <>
-      <Row className="mt-3 view-selector">
-        <Col>
-          <h2 onClick={() => setView("normal")}>Normal</h2>
-        </Col>
-        <Col>
-          <h2 className="selected" onClick={() => setView("pro")}>
+      <div className="con">
+      <div className="login-view-selector">
+          <h2
+            className="view-selector-btn"
+            onClick={() => setView("normal")}
+          >
+            Normal
+          </h2>
+          <h2 className="view-selector-btn" id="selected"onClick={() => setView("pro")}>
             Pro
           </h2>
-        </Col>
-      </Row>
-      <div className="con">
+        </div>
         <div className="signup-con">
           <div className="flexrow">
             <div className="labelinput">
