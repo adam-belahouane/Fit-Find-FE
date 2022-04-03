@@ -61,7 +61,7 @@ const NormalLoginPage = ({ setView }) => {
         <div className="signup-con">
           <h1>Sign in</h1>
           <p>Find Fitness professionals near you</p>
-          <form className="login-form">
+          <div className="login-form">
             <div className="inputbox">
               <input
                 type="text"
@@ -90,7 +90,7 @@ const NormalLoginPage = ({ setView }) => {
             <button onClick={(event) => login(event)} className="big-blue-btn">
               Sign in
             </button>
-          </form>
+          </div>
           <div className="or-demo">
             <span className="or-text">or</span>
           </div>
