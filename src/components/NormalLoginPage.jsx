@@ -49,6 +49,7 @@ const NormalLoginPage = ({ setView }) => {
   const loginWithDemo = () => {
     setEmail("adam@hotmail.com");
     setPassword("adam1234");
+    if(password !== "")
     login();
   };
   return (
