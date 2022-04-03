@@ -7,6 +7,7 @@ Geocode.setApiKey(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
 
 const ProSignUpPage = ({ setView }) => {
   const url = process.env.REACT_APP_BE_URL;
+  const [nextPage, setNextPage] = useState(false);
   const [user, setUser] = useState({
     firstName: "",
     lastname: "",
@@ -27,7 +28,8 @@ const ProSignUpPage = ({ setView }) => {
     });
   };
 
-  const handleSignupToServer = async () => {
+  const handleSignupToServer = async (event) => {
+    event.preventDefault();
     await Geocode.fromAddress(user.address).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
@@ -61,92 +63,112 @@ const ProSignUpPage = ({ setView }) => {
   };
   return (
     <>
-      <Row className="mt-3 view-selector">
-        <Col>
-          <h2 onClick={() => setView("normal")}>Normal</h2>
-        </Col>
-        <Col>
-          <h2 className="selected" onClick={() => setView("pro")}>
+      <div className="con">
+        <div className="login-view-selector">
+          <h2
+            className="view-selector-btn"
+            onClick={() => setView("normal")}
+          >
+            Normal
+          </h2>
+          <h2 className="view-selector-btn" id="selected" onClick={() => setView("pro")}>
             Pro
           </h2>
-        </Col>
-      </Row>
-      <div className="con">
+        </div>
         <div className="signup-con">
-          <div className="flexrow">
-            <div className="labelinput">
-              <p className="label">First Name</p>
-              <input
-                type="text"
-                placeholder="First Name"
-                value={user.firstName}
-                onChange={(e) => handleSignUpInput("firstName", e.target.value)}
-              />
-            </div>
-            <div className="labelinput">
-              <p className="label">Last Name</p>
-              <input
-                type="text"
-                placeholder="Last Name"
-                value={user.lastname}
-                onChange={(e) => handleSignUpInput("lastname", e.target.value)}
-              />
-            </div>
-          </div>
+          {nextPage === false ? (
+            <>
+            <form className="signup-form">
+              <h1>Sign up</h1>
+              <p>Become a Fitness professional</p>
+              <div className="inputbox">
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  required
+                  value={user.email}
+                  onChange={(e) => handleSignUpInput("email", e.target.value)}
+                />
+                <label className="labelforlogin">Email</label>
+              </div>
+              <div className="inputbox">
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  required
+                  value={user.password}
+                  onChange={(e) =>
+                    handleSignUpInput("password", e.target.value)
+                  }
+                />
+                <label className="labelforlogin">Password</label>
+              </div>
 
-          <div className="labelinput">
-            <p className="label">Address</p>
-            <input
-              type="text"
-              placeholder="Address"
-              value={user.address}
-              onChange={(e) => handleSignUpInput("address", e.target.value)}
-            />
+              <button
+                className="big-blue-btn"
+                onClick={() => setNextPage(true)}
+              >
+                Continue
+              </button>
+            </form>
+            <div className="login-now">
+            Already on FitFind?{" "}
+            <a href="/login" className="blue-link-highlight">
+              Sign in
+            </a>
           </div>
-          <div className="flexrow">
-            <div className="labelinput">
-              <p className="label">Email</p>
-              <input
-                type="text"
-                placeholder="Email"
-                value={user.email}
-                onChange={(e) => handleSignUpInput("email", e.target.value)}
-              />
-            </div>
-            <div className="labelinput">
-              <p className="label">Password</p>
-              <input
-                type="password"
-                placeholder="Password"
-                value={user.password}
-                onChange={(e) => handleSignUpInput("password", e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="labelinput">
-            <p className="label">Job</p>
-            <input
-              type="text"
-              placeholder="Job Role"
-              value={user.jobrole}
-              onChange={(e) => handleSignUpInput("jobrole", e.target.value)}
-            />
-          </div>
-          <div className="labelinput">
-            <p className="label">Bio</p>
-            <textarea
-              name=""
-              id=""
-              placeholder="A short description of you and your skills"
-              value={user.bio}
-              onChange={(e) => handleSignUpInput("bio", e.target.value)}
-            ></textarea>
-          </div>
-          <button className="signup-btn" onClick={() => handleSignupToServer()}>
-            Sign Up
-          </button>
+          </>
+          ) : (
+            <form className="signup-form">
+              <h1>Sign up</h1>
+              <p>Find Fitness professionals near you</p>
+              <div className="inputbox">
+                <input
+                  type="text"
+                  name="firstname"
+                  id="email"
+                  required
+                  value={user.firstName}
+                  onChange={(e) =>
+                    handleSignUpInput("firstName", e.target.value)
+                  }
+                />
+                <label className="labelforlogin">First Name</label>
+              </div>
+              <div className="inputbox">
+                <input
+                  type="text"
+                  name="lastname"
+                  id="password"
+                  required
+                  value={user.lastname}
+                  onChange={(e) =>
+                    handleSignUpInput("lastname", e.target.value)
+                  }
+                />
+                <label className="labelforlogin">Last Name</label>
+              </div>
+
+              <button
+                className="big-blue-btn"
+                onClick={(event) => handleSignupToServer(event)}
+              >
+                Join
+              </button>
+
+              <button
+                className="big-back-btn"
+                onClick={() => setNextPage(false)}
+              >
+                Back
+              </button>
+            </form>
+          )}
         </div>
       </div>
+      
     </>
   );
 };

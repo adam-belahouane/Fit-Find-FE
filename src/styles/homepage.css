@@ -1,5 +1,5 @@
 body {
-  background-color: #caccce48 !important;
+  background-color: white;
 }
 
 .loader {
@@ -11,12 +11,6 @@ body {
 .search {
   position: absolute;
   z-index: 2;
-}
-
-.con {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .nav-img {
