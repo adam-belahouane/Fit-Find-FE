@@ -14,7 +14,7 @@ const NormalLoginPage = ({ setView }) => {
   const [password, setPassword] = useState("");
 
   const login = async (event) => {
-    event.preventDefault()
+    
     const details = {
       email: email,
       password: password,
