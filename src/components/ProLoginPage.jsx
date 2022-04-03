@@ -55,7 +55,7 @@ const ProLoginPage = ({ setView }) => {
         </div>
         <div className="signup-con">
           <h1>Sign in</h1>
-          <p>Find Fitness professionals near you</p>
+          <p>Find Fitness clients near you</p>
           <div className="login-form">
             <div className="inputbox">
               <input
