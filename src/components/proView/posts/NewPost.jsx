@@ -5,7 +5,7 @@ const NewPost = ({ First, Last, avatar, getMe }) => {
     const [show, setShow] = useState(false)
   return (
       <>
-    <div className="post">
+    <div className="addnewpost">
       <div className="userimg">
         <div className="img">
           {avatar ? (

@@ -13,13 +13,7 @@ const NormalLoginPage = ({ setView }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const login = async (event) => {
-    
-    const details = {
-      email: email,
-      password: password,
-    };
-
+  const loginAction = async (details) => {
     try {
       const response = await fetch(`${url}/users/login`, {
         method: "POST",
@@ -44,13 +38,25 @@ const NormalLoginPage = ({ setView }) => {
       console.log(error);
       alert("Wrong credentials, try again!");
     }
+  } 
+
+  const login = async (event) => {
+    event.preventDefault()
+    const details = {
+      email: email,
+      password: password,
+    };
+    loginAction(details)
+    
   };
 
-  const loginWithDemo = () => {
-    setEmail("adam@hotmail.com");
-    setPassword("adam1234");
-    if(password !== "")
-    login();
+  const loginWithDemo = (event) => {
+    event.preventDefault()
+    const details = {
+      email: "adam@hotmail.com",
+      password: "adam1234"
+    }
+    loginAction(details)
   };
   return (
     <>
@@ -59,7 +65,7 @@ const NormalLoginPage = ({ setView }) => {
           <h2 className="view-selector-btn" id="selected" onClick={() => setView("normal")}>Normal</h2>
           <h2 className="view-selector-btn" onClick={() => setView("pro")}>Pro</h2>
         </div>
-        <div className="signup-con">
+        <form className="signup-con">
           <h1>Sign in</h1>
           <p>Find Fitness professionals near you</p>
           <div className="login-form">
@@ -95,10 +101,10 @@ const NormalLoginPage = ({ setView }) => {
           <div className="or-demo">
             <span className="or-text">or</span>
           </div>
-          <button onClick={loginWithDemo} className="big-blue-btn">
+          <button onClick={(event) => loginWithDemo(event)} className="big-blue-btn">
             Demo sign in
           </button>
-        </div>
+        </form>
         <div className="join-now">
           New to FitFind?{" "}
           <a href="/signup" className="blue-link-highlight">

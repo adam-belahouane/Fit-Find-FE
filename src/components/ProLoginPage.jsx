@@ -16,11 +16,7 @@ const ProLoginPage = ({ setView }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const login = async () => {
-    const details = {
-      email: email,
-      password: password,
-    };
+  const loginAction = async(details) => {
     try {
       const response = await fetch(`${url}/proUser/login`, {
         method: "POST",
@@ -39,11 +35,21 @@ const ProLoginPage = ({ setView }) => {
       console.log(error);
       alert("Wrong credentials, try again!");
     }
+  }
+
+  const login = async () => {
+    const details = {
+      email: email,
+      password: password
+    }
+    loginAction(details)
   };
   const loginWithDemo = () => {
-    setEmail("adam@hotmail.com");
-    setPassword("adam1234");
-    login();
+    const details = {
+      email: "adam@hotmail.com",
+      password: "adam1234"
+    }
+    loginAction(details)
   };
 
   return (
