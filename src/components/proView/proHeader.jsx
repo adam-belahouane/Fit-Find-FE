@@ -16,7 +16,12 @@ const ProHeader = () => {
   useEffect(() => {}, [prouser]);
 
   return (
+    <>
+      <div className="top-header">
+          <img src="https://www.hotfootdesign.co.uk/wp-content/uploads/2016/03/google-blue.jpg" alt="" />
+      </div>
     <div className="Pro-user-con">
+
       <div className="img-text">
         {avatar ? (
           <img src={avatar} className="Pro-user-Image" />
@@ -27,11 +32,11 @@ const ProHeader = () => {
           />
         )}
         <div className="mx-2">
-          <h2>
+          <h2 className="proheader-name">
             {firstName} {lastname}
           </h2>
-          <h6>{jobrole}</h6>
-          <h6>Westminster, London</h6>
+          <h6 className="proheader-jobrole">{jobrole}</h6>
+          <h6 className="proheader-location">Westminster, London</h6>
         </div>
       </div>
       <div className="rating-div">
@@ -49,12 +54,9 @@ const ProHeader = () => {
             />
           )}
         </div>
-        <div className="btn-con">
-          {/* <Button>Message</Button> */}
-          {/* <Button>Booking</Button> */}
-        </div>
       </div>
     </div>
+    </>
   );
 };
 
