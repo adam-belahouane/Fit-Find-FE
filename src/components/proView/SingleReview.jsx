@@ -65,7 +65,7 @@ const SingleReview = ({ review }) => {
         <div className="ratingandtitle">
           <h3 className="reviewtitle">{review.title}</h3>
           <Rating
-            className="rating"
+            className="rating stars"
             name="read-only"
             value={review.ratingNum}
             readOnly

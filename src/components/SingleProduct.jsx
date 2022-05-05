@@ -74,7 +74,7 @@ const SingleProduct = ({ program }) => {
           <div className="program-footer">
             <h6 style={{"color": "gray"}}>{dateDiff(createdAt)}</h6>
             <div className="btnandprice">
-              <div className="programbtn" onClick={() => handleRedirect()}>
+              <div className="small-blue-btn" onClick={() => handleRedirect()}>
                 Login
               </div>
               <p className="programprice">£{price / 100}</p>
@@ -111,7 +111,7 @@ const SingleProduct = ({ program }) => {
               {owned === true ? (
                 <></>
               ) : (
-                <div className="programbtn" onClick={() => buyProgram()}>
+                <div className="small-blue-btn" onClick={() => buyProgram()}>
                   Buy
                 </div>
               )}

@@ -28,6 +28,7 @@ const NewReview = () => {
             ratingChange(newValue);
           }}
           precision={1}
+          className="stars"
         />
       </div>
 
