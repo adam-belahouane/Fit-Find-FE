@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import NewPost from "./posts/NewPost";
 import { useSelector } from "react-redux";
 
-const MainPosts = ({ setView }) => {
+const MainPosts = ({ setView, data }) => {
   const url = process.env.REACT_APP_BE_URL;
   const user = useParams().userId;
   const isloggedin = useSelector(state => state.login.isloggedin)

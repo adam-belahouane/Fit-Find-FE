@@ -71,6 +71,11 @@
   margin-right: 2.5vw;
 }
 
+
+.modal-btn-div {
+  width: fit-content;
+}
+
 #mainreviewcontent {
   width: 95%;
 }
@@ -81,4 +86,37 @@
 
 .reviewtitle {
   color: black;
+}
+
+.close-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 6px;
+}
+
+.close-div:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+@media only screen and (max-width: 992px) {
+  .modal-content {
+    width: 60vw;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .modal-content {
+    width: 75vw;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .modal-content {
+    width: 100vw;
+  }
+  .modal {
+    align-items: flex-start;
+    padding-top: 10vh;
+  }
 }

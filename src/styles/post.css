@@ -14,11 +14,20 @@
 
 .post {
   display: flex;
+  width: 100%;
   background-color: white;
-  border-radius: 1rem;
   border: solid lightgray 1px;
+  border-top: none;
+  border-bottom: none;
   padding: 1vh 1vw;
-  margin-bottom: 2vh;
+}
+.addnewpost {
+  display: flex;
+  background-color: white;
+  border: solid lightgray 1px;
+  border-radius: 0.5rem;
+  padding: 1vh 1vw;
+  margin-bottom: 1vh;
 }
 .singlePost {
   display: flex;
@@ -33,20 +42,21 @@
 
 .postImg {
   width: 100%;
-  height: auto;
-  margin-right: 2vw;
-  margin-bottom: 1vh;
-  border: 1px solid rgb(201, 201, 201);
-  border-radius: 20px;
+  height: 50%;
 }
 
 .postImgDiv {
-  width: 95%;
-  height: auto;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border: solid lightgray 1px;
+  border-top: none;
+  border-bottom: none;
+  box-sizing: border-box;
 }
 
 .headerText {
-  margin-top: 1vh;
+  margin-left: 10px;
 }
 
 h3 {
@@ -57,16 +67,13 @@ h3 {
   display: flex;
 }
 
-.dotdot {
-  margin-right: 2vw;
-}
-
 .main-con {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: #caccce48;
+  min-height: 93.5vh;
 }
 
 .main-profile-con {
@@ -79,14 +86,14 @@ h3 {
 }
 
 .recommed-users {
-  width: 20vw;
+  width: 300px;
 }
 
 .newpostbtn {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40vw;
+  width: 85%;
   border: 1px solid rgb(201, 201, 201);
   border-radius: 20px;
   margin-left: 1vw;
@@ -107,43 +114,71 @@ h3 {
 }
 
 .modal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-content {
-    width: 50vw;
-    border-radius: 1rem;
-    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.15);
-
+  width: 50vw;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.15);
 }
 
 .modal-body-header-posts {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 #mainpostcontent {
-    width: 100%;
-    border: 0px;
-    margin-top: 1.5vh;
+  width: 100%;
+  border: 0px;
+  margin-top: 1.5vh;
 }
 
 .modal-body {
-    padding: 1vh 2vw;
+  padding: 1vh 2vw;
 }
 
 .modal-post-text {
-    margin: 0 2vw;
+  margin: 0 2vw;
+}
+
+.userandname {
+  display: flex; 
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 0.5rem 0.5rem 0 0 ;
+  border: solid lightgray 1px;
+  border-bottom: none;
+  padding: 1vh 1vw;
+}
+
+.textandname {
+  display: flex;
+  align-items: center;
+}
+
+.dateposted {
+  border-radius: 0 0 0.5rem 0.5rem ;
+  border: solid lightgray 1px;
+  border-top: none;
+  background-color: white;
+  margin-bottom: 1vh;
+  padding: 0 1vw;
+}
+
+.dotdot {
+  margin-right: 2vw;
 }
 
 @media only screen and (max-width: 992px) {
@@ -153,7 +188,7 @@ h3 {
     align-items: center;
     width: 720px;
   }
-  
+
   .header-profile-con {
     width: 100%;
   }
@@ -169,7 +204,7 @@ h3 {
     align-items: center;
     width: 85vw;
   }
-  
+
   .header-profile-con {
     width: 100%;
   }
@@ -185,7 +220,7 @@ h3 {
     align-items: center;
     width: 95vw;
   }
-  
+
   .header-profile-con {
     width: 100%;
   }

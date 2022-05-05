@@ -1,26 +1,57 @@
 .Pro-user-Image {
-  width: 10rem;
-  height: 10rem;
+  margin-top: -112px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
+  border: 4px solid white;
   object-fit: cover;
+}
+
+.top-header > img {
+  margin-top: 2vh;
+  border: lightgray solid 1px;
+  border-radius: 0.5rem 0.5rem 0px 0px;
+  height: 159px;
+  width: 100%;
+}
+
+.proheader-name {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.proheader-jobrole {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.proheader-location {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17.5px;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .Pro-user-con {
   background-color: white;
   display: flex;
-  border-radius: 0.5rem;
+  border-radius: 0 0 0.5rem 0.5rem;
   border: lightgray solid 1px;
-  margin-top: 2vh;
+  border-top: none;
   justify-content: space-between;
-  align-items: center;
-  padding: 1vh;
-  height: fit-content;
+  padding: 24px;
+  padding-top: 0px;
 }
 
 .img-text {
   display: flex;
-  align-items: center;
-  margin-left: 1vw;
+  flex-direction: column;
 }
 
 .selected {
@@ -42,6 +73,7 @@ body {
 }
 
 .rating-div {
+  margin-top: 30px;
   width: 30%;
   display: flex;
   justify-content: center;
@@ -49,7 +81,10 @@ body {
 }
 
 .rating-div > h2 {
-  margin-bottom: 1px;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
 }
 
 .product-div {
@@ -81,7 +116,8 @@ body {
 
 .programprice {
   /* background-color: rgba(5, 255, 59, 1); */
-  width: fit-content;
+  width: 50px;
+  text-align: center;
   padding: 0.25vh 0.25vw;
   border-radius: 0.5rem;
   margin-left: 0.25vw;
@@ -119,39 +155,27 @@ body {
   display: flex;
 }
 
+
+.stars {
+  color: rgb(215, 183, 4) !important;
+}
+
+.smallrating-div {
+  display: none;
+}
+
 @media only screen and (max-width: 576px) {
-  .Pro-user-con {
-    background-color: white;
-    display: flex;
-    margin-top: 2vh;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1vh;
-    flex-direction: column;
-    height: fit-content;
+  .rating-div {
+    display: none;
   }
 
-  .Pro-user-Image {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  .rating-div {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
-  }
-  .img-text {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    margin-left: 1vw;
-  }
   .stars {
-    margin-top: 10px;
+    margin-top: 5px;
+  }
+
+  .smallrating-div {
+    display: flex;
+    flex-direction: row;
   }
 }
 

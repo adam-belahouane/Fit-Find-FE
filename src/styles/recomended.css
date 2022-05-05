@@ -4,12 +4,12 @@
 }
 .rec-users-list {
     border: lightgray solid 1px;
-    margin-top: 2vh;
+    margin-top: 2.1vh;
     background-color: white;
     border-radius: 0.5rem;
     margin-left: 1vw;
     position: sticky;
-    top: 7.3vh;
+    top: 7.5vh;
     padding-bottom: 0.5vh;
 }
 .rec-p {
