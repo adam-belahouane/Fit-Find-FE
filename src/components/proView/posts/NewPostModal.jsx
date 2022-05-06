@@ -5,23 +5,23 @@ const NewPostModal = ({ first, last, avatar, setShow, show, getMe }) => {
   const [text, setText] = useState("");
 
   const newPost = async () => {
-      const body = {
-          text : text
-      }
+    const body = {
+      text: text,
+    };
     try {
       let response = await fetch(`${url}/posts/newPosts`, {
         method: "POST",
         body: JSON.stringify(body),
-        headers: {'Content-Type': 'application/json'},
-        credentials: 'include'
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
       });
 
-      if(response.ok) {
-          console.log('success')
-          setShow(false)
-          getMe()
+      if (response.ok) {
+        console.log("success");
+        setShow(false);
+        getMe();
       } else {
-          console.log('not success')
+        console.log("not success");
       }
     } catch (error) {
       console.log(error);
@@ -35,6 +35,25 @@ const NewPostModal = ({ first, last, avatar, setShow, show, getMe }) => {
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           <div className="modal-header">
             <h4 className="modal-title">Create a post</h4>
+            <div onClick={() => setShow(false)} className="close-div">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-x-lg"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"
+                />
+              </svg>
+            </div>
           </div>
           <div className="modal-body">
             <div className="modal-body-header-posts">
@@ -65,12 +84,11 @@ const NewPostModal = ({ first, last, avatar, setShow, show, getMe }) => {
             ></textarea>
           </div>
           <div className="modal-footer">
-            <button className="button" onClick={() => newPost()}>
-            Submit
-          </button>
-            <button className="button" onClick={() => setShow(false)}>
-              Close
+            <div className="modal-btn-div">
+            <button disabled={!text} className="small-blue-btn" onClick={() => newPost()}>
+              Post
             </button>
+            </div>
           </div>
         </div>
       </div>

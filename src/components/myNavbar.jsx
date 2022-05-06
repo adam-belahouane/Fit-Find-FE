@@ -108,7 +108,7 @@ const MyNavbar = () => {
             >
               <Nav.Link href="/">Home</Nav.Link>
               {role === 'pro' ?
-              <Nav.Link href="/user/me">profile</Nav.Link>:<Nav.Link href="/User/me/norm">profile</Nav.Link>}
+              <Nav.Link href="/user/me">Profile</Nav.Link>:<Nav.Link href="/User/me/norm">profile</Nav.Link>}
               <Nav.Link onClick={() => logout()}>Log out</Nav.Link>
             </Nav>
             {/* <Form className="d-flex">

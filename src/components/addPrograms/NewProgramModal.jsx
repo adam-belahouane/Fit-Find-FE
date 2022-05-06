@@ -49,6 +49,25 @@ const NewProgramModal = ({ setShow, show }) => {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <h4 className="modal-title">New Product</h4>
+          <div onClick={() => setShow(false)} className="close-div">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-x-lg"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"
+                />
+              </svg>
+            </div>
         </div>
         <div className="modal-body">
           <h4>Give your new product a title</h4>
@@ -86,12 +105,11 @@ const NewProgramModal = ({ setShow, show }) => {
             onChange={(e) => handleProgramInput("paidcontent", e.target.value)}
           ></textarea>
           <div className="modal-footer">
-            <button className="button" onClick={() => newProgram()}>
+            <div className="modal-btn-div">
+            <button className="small-blue-btn" onClick={() => newProgram()}>
               Submit
             </button>
-            <button className="button" onClick={() => setShow(false)}>
-              Close
-            </button>
+            </div>
           </div>
         </div>
       </div>

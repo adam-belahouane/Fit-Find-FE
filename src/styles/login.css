@@ -144,7 +144,7 @@ input:-webkit-autofill + .labelforlogin {
 .small-blue-btn {
   all: unset;
   background-color: #0a66c2;
-  padding: 0px 24px;
+  padding: 0px 20px;
   color: white;
   cursor: pointer;
   display: inline-block;
@@ -157,7 +157,16 @@ input:-webkit-autofill + .labelforlogin {
 }
 
 .small-blue-btn:hover {
-  background: #004182 !important;
+  background: #004182;
+}
+
+.small-blue-btn:disabled,
+.small-blue-btn:hover:disabled,
+.small-blue-btn:disabled:active,
+.small-blue-btn:disabled:hover:active {
+  background-color: rgba(0,0,0,0.08);
+  color: rgba(0, 0 , 0, 0.3);
+  cursor: not-allowed;
 }
 
 .big-blue-btn:hover {
