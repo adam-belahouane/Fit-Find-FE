@@ -16,7 +16,7 @@ const NewPost = ({ First, Last, avatar, getMe }) => {
         </div>
       </div>
       <div className="newpostbtn" onClick={() => setShow(true)}>
-          New Post
+          Start a post
       </div>
     </div>
     <NewPostModal first={First} last={Last} avatar={avatar} show={show} setShow={setShow} getMe={getMe}  />
