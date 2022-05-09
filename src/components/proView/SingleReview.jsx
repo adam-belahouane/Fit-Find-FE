@@ -7,25 +7,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { setProUserIdAction } from "../../actions";
 import { getProUserIdAction } from "../../actions/proUser";
+import axios from "axios";
 
 const SingleReview = ({ review }) => {
   const { user } = useSelector((state) => state.login);
   const prouser = useParams().userId;
   const url = process.env.REACT_APP_BE_URL;
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const deleteReview = async () => {
     try {
-      let response = await fetch(
-        `${url}/reviews/newReview/${prouser}/${review._id}`,
-        {
-          method: "DELETE",
-          credentials: "include",
-        }
+      let response = await axios.delete(
+        `${url}/reviews/newReview/${prouser}/${review._id}`
       );
-      if (response.ok) {
+      if (response.status === 200) {
         console.log("ok");
-        dispatch(getProUserIdAction(prouser))
+        dispatch(getProUserIdAction(prouser));
       }
     } catch (error) {
       console.log(error);
@@ -35,7 +32,10 @@ const SingleReview = ({ review }) => {
   return (
     <div className="review-div">
       <div>
-        <img src="https://icon-library.com/images/anonymous-person-icon/anonymous-person-icon-18.jpg" className="userImg-review" />
+        <img
+          src="https://icon-library.com/images/anonymous-person-icon/anonymous-person-icon-18.jpg"
+          className="userImg-review"
+        />
       </div>
       <div className="singlePost">
         <div className="headerOfPosts">

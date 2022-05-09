@@ -1,18 +1,15 @@
-import { useEffect } from "react";
 import {
   Navbar,
   Container,
   NavDropdown,
-  Nav,
-  Button,
-  Form,
-  FormControl,
+  Nav
 } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import "../styles/homepage.css";
 import { setIsLoggedInAction, setRedirectAction, setRoleAction, setUserAction } from "../actions";
 import { useNavigate } from "react-router-dom";
 import logo from "../FFlogo.png"
+import axios from "axios";
 
 const MyNavbar = () => {
   const url = process.env.REACT_APP_BE_URL;
@@ -30,7 +27,7 @@ const MyNavbar = () => {
           method: "POST",
           credentials: "include",
         });
-        if (response.ok) {
+        if (response.status == 200) {
           console.log("ok");
           dispatch(setIsLoggedInAction(false));
           dispatch(setRoleAction(""));
@@ -45,11 +42,8 @@ const MyNavbar = () => {
       }
     } else {
       try {
-        const response = await fetch(`${url}/proUser/logout`, {
-          method: "POST",
-          credentials: "include",
-        });
-        if (response.ok) {
+        const response = await axios.post(`${url}/proUser/logout`, { withCredentials: true});
+        if (response.status == 200) {
           console.log("ok");
           dispatch(setIsLoggedInAction(false));
           dispatch(setRoleAction(""));

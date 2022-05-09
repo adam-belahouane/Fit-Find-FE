@@ -5,8 +5,7 @@
   border-radius: 50%;
   border: 4px solid white;
   object-fit: cover;
-  z-index: 2;
-  cursor: pointer;
+  z-index: 1;
 }
 
 .edit-user-Image {
@@ -30,9 +29,10 @@
   height: 159px;
   width: 100%;
   margin-bottom: 20px;
+  z-index: 10;
 }
 
-.top-header > img {
+.top-header {
   margin-top: 2vh;
   border: lightgray solid 1px;
   border-radius: 0.5rem 0.5rem 0px 0px;

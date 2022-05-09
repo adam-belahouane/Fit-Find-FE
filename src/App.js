@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route, Router} from 'react-router-dom'
 import ProPage from './components/proView/proPage';
 import MyNavbar from './components/myNavbar';
 import HomePage from './components/HomePage';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import createAuthRefreshInterceptor from 'axios-auth-refresh';
@@ -30,7 +30,11 @@ function App() {
     return Promise.resolve()
   })
 
-  createAuthRefreshInterceptor(axios, role === "normal"?refreshAuthLogic:refreshAuthLogicPro)
+  createAuthRefreshInterceptor(axios, refreshAuthLogicPro)
+
+  useEffect(() => {
+
+  })
 
   return (
     <div>

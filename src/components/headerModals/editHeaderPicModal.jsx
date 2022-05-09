@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-const EditHeaderPicModal = ({ showHeader, setShowHeader, headerImg }) => {
-    const[image, setImage] = useState(headerImg)
+const EditHeaderPicModal = ({ showHeader, setShowHeader, setHeaderColor }) => {
+    const [color, setColor] = useState()
 
-    useEffect(() => {
-        console.log(image)
-    }, [image])
+    const onColorPickerChange = (e) => {
+        setColor(e.target.value);
+    }
 
-    const onImageChange = (e) => {
-        setImage(URL.createObjectURL(e.target.files[0]))
-        
+    const handleHeaderChange = () => {
+        setHeaderColor(color)
+        setShowHeader(false)
     }
   if (!showHeader) {
     return null;
@@ -40,12 +40,11 @@ const EditHeaderPicModal = ({ showHeader, setShowHeader, headerImg }) => {
           </div>
         </div>
         <div className="modal-body">
-            <img src={image} className="edit-header-img" />
-            <input type="file" onChange={(e) => onImageChange(e)} />
+            <input type="color" className="edit-header-img" onChange={(e) => onColorPickerChange(e)} />
         </div>
         <div className="modal-footer">
           <div className="modal-btn-div">
-            <button className="small-blue-btn">Save</button>
+            <button className="small-blue-btn" onClick={handleHeaderChange}>Save</button>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 const NewPostModal = ({ first, last, avatar, setShow, show, getMe }) => {
@@ -9,14 +10,8 @@ const NewPostModal = ({ first, last, avatar, setShow, show, getMe }) => {
       text: text,
     };
     try {
-      let response = await fetch(`${url}/posts/newPosts`, {
-        method: "POST",
-        body: JSON.stringify(body),
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      });
-
-      if (response.ok) {
+      let response = axios.post(`${url}/posts/newPosts`, body);
+      if (response.status === 201) {
         console.log("success");
         setShow(false);
         getMe();
