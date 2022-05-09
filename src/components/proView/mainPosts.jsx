@@ -1,49 +1,18 @@
-import { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import "../../styles/proHeader.css";
 import SinglePost from "../SinglePost";
 import { useParams } from "react-router-dom";
 import NewPost from "./posts/NewPost";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-const MainPosts = ({ setView, data }) => {
-  const url = process.env.REACT_APP_BE_URL;
-  const user = useParams().userId;
+const MainPosts = ({ setView }) => {
+  const proUserId = useParams().userId;
   const isloggedin = useSelector(state => state.login.isloggedin)
-  const [proUser, setProUser] = useState([]);
-  const [posts, setPosts] = useState([]);
+  const { prouser } = useSelector((state) => state.prouser);
+  const { role, user} = useSelector(state => state.login)
 
-  const getMe = async () => {
-    try {
-      let response = await fetch(url + "/proUser/me", {
-        credentials: "include",
-      });
-      if (response.ok) {
-        let data = await response.json();
-        setProUser(data);
-        setPosts(data.posts.reverse());
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const getProUser = async () => {
-    try {
-      let response = await fetch(url + "/proUser/getProUser/" + user);
-      if (response.ok) {
-        let data = await response.json();
-        setProUser(data);
-        setPosts(data.posts.reverse());
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    user === "me" ? getMe() : getProUser();
-  }, [user]);
+  let postsr = proUserId === "me" ? user.posts : prouser.posts;
+  const posts = [...postsr].reverse()
 
   return (
     <>
@@ -60,18 +29,17 @@ const MainPosts = ({ setView, data }) => {
           <h2 onClick={() => setView("Reviews")}>Reviews</h2>
         </Col>
       </Row>
-      {user === 'me' && isloggedin && <NewPost
-        First={proUser.firstName}
-        Last={proUser.lastname}
-        avatar={proUser.avatar}
-        getMe={getMe}
+      {proUserId === 'me' && isloggedin && <NewPost
+        First={prouser.firstName}
+        Last={prouser.lastname}
+        avatar={prouser.avatar}
       />}
-      {posts.map((post) => (
+      {posts.length > 0 && posts.map((post) => (
         <SinglePost
           key={post._id}
-          First={proUser.firstName}
-          Last={proUser.lastname}
-          avatar={proUser.avatar}
+          First={prouser.firstName}
+          Last={prouser.lastname}
+          avatar={prouser.avatar}
           post={post}
         />
       ))}

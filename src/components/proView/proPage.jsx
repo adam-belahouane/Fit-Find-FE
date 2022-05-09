@@ -44,7 +44,6 @@ const ProPage = () => {
 
   useEffect(() => {
     user === "me"? dispatch(getProUserAction):dispatch(getProUserIdAction(user))
-    user === "me"? getMe() : getProUser();
   }, [user]);
   return (
     <div className="main-con">
