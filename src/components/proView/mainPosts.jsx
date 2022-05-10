@@ -10,9 +10,12 @@ const MainPosts = ({ setView }) => {
   const isloggedin = useSelector(state => state.login.isloggedin)
   const { prouser } = useSelector((state) => state.prouser);
   const { role, user} = useSelector(state => state.login)
+  let { firstName, lastname, jobrole, overallreview, avatar } =
+  proUserId === "me" ? user : prouser;
 
   let postsr = proUserId === "me" ? user.posts : prouser.posts;
   const posts = [...postsr].reverse()
+  
 
   return (
     <>
@@ -30,16 +33,16 @@ const MainPosts = ({ setView }) => {
         </Col>
       </Row>
       {proUserId === 'me' && isloggedin && <NewPost
-        First={prouser.firstName}
-        Last={prouser.lastname}
-        avatar={prouser.avatar}
+        First={firstName}
+        Last={lastname}
+        avatar={avatar}
       />}
       {posts.length > 0 && posts.map((post) => (
         <SinglePost
           key={post._id}
-          First={prouser.firstName}
-          Last={prouser.lastname}
-          avatar={prouser.avatar}
+          First={firstName}
+          Last={lastname}
+          avatar={avatar}
           post={post}
         />
       ))}

@@ -39,6 +39,11 @@ function App() {
 
   createAuthRefreshInterceptor(axios, refreshAuthLogic);
 
+  useEffect(() => {
+    if(role ==! "")
+    refreshAuthLogic()
+  }, [role])
+
   return (
     <div>
       <MyNavbar />

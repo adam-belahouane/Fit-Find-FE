@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProUserAction } from "../../actions";
@@ -23,15 +24,8 @@ const EditProfileInfoModal = ({ show, setShow }) => {
 
   const handleEditUserInfo = async () => {
     try {
-        let response = await fetch(url + "/proUser/me", {
-            method: "PUT",
-            body: JSON.stringify(userInfo),
-            headers: {
-              "Content-type": "application/json",
-            },
-            credentials: "include",
-          });
-          if (response.ok) {
+        let response = await axios.put(url + "/proUser/me", userInfo);
+          if (response.status === 200) {
             console.log("success");
             setShow(false);
             dispatch(getProUserAction())

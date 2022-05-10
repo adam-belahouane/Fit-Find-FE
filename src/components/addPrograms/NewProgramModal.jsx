@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getProUserAction } from "../../actions";
@@ -22,14 +23,9 @@ const NewProgramModal = ({ setShow, show }) => {
 
   const newProgram = async () => {
     try {
-      let response = await fetch(`${url}/program/newProgram`, {
-        method: "POST",
-        body: JSON.stringify(program),
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      });
+      let response = await axios.post(`${url}/program/newProgram`, program);
 
-      if (response.ok) {
+      if (response.status === 200) {
         console.log("success");
         setShow(false);
         dispatch(getProUserAction())
