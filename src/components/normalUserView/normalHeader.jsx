@@ -58,7 +58,6 @@ const NormalHeader = ({ data }) => {
             <h2 className="proheader-name">
               {firstName} {lastname}
             </h2>
-            <h6 className="proheader-jobrole">something</h6>
             <h6 className="proheader-location">{city}</h6>
           </div>
         </div>
