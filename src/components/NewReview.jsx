@@ -20,7 +20,7 @@ const NewReview = () => {
     <>
       <div className="addReview-div">
         <img src="https://icon-library.com/images/anonymous-person-icon/anonymous-person-icon-18.jpg" className="userImg-review" />
-        <h6 onClick={() => setShow(true)}>Write Review</h6>
+        <h6 className="write-review-btn" onClick={() => setShow(true)}>Write Review</h6>
         <Rating
           name="half-rating"
           Value={review.ratingNum}
