@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getProUserAction } from "../../actions";
 
 const EditProfilePicModal = ({show, setShow, avatar}) => {
@@ -7,6 +7,7 @@ const EditProfilePicModal = ({show, setShow, avatar}) => {
     const [imageFile, setImageFile] = useState(null)
     const url = process.env.REACT_APP_BE_URL;
     const dispatch = useDispatch()
+    const {role} = useSelector(state => state.login)
 
     const onImageChange = (e) => {
         setImage(URL.createObjectURL(e.target.files[0]))
@@ -17,6 +18,7 @@ const EditProfilePicModal = ({show, setShow, avatar}) => {
         try {
             let formData = new FormData()
             formData.append("avatar", imageFile)
+            
             let response = await fetch(url + "/proUser/profilePic/me", {
                 method: "POST",
                 body: formData,
@@ -64,7 +66,7 @@ const EditProfilePicModal = ({show, setShow, avatar}) => {
         </div>
         <div className="modal-body">
             <div className="editpic-upload">
-                <img src={image} className="edit-user-Image" />
+                {image?<img src={image} className="edit-user-Image" />:<img src="https://icon-library.com/images/anonymous-person-icon/anonymous-person-icon-18.jpg" className="edit-user-Image" />}
                 <input type="file" onChange={(e) => onImageChange(e)} />
             </div>
         </div>

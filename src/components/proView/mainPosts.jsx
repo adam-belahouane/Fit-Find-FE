@@ -13,9 +13,8 @@ const MainPosts = ({ setView }) => {
   let { firstName, lastname, jobrole, overallreview, avatar } =
   proUserId === "me" ? user : prouser;
 
-  let postsr = proUserId === "me" ? user.posts : prouser.posts;
-  const posts = [...postsr].reverse()
-  
+  let postsr = role === "pro" ? user.posts : prouser.posts;
+  const posts = postsr?[...postsr].reverse():''
 
   return (
     <>
@@ -37,7 +36,7 @@ const MainPosts = ({ setView }) => {
         Last={lastname}
         avatar={avatar}
       />}
-      {posts.length > 0 && posts.map((post) => (
+      {posts ? posts.length > 0 && posts.map((post) => (
         <SinglePost
           key={post._id}
           First={firstName}
@@ -45,7 +44,7 @@ const MainPosts = ({ setView }) => {
           avatar={avatar}
           post={post}
         />
-      ))}
+      )):<></>}
     </>
   );
 };
