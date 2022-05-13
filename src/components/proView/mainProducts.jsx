@@ -25,7 +25,7 @@ const MainProducts = ({ setView }) => {
           <h2 onClick={() => setView("Reviews")}>Reviews</h2>
         </Col>
       </Row>
-        {role === "pro" && isloggedin === true && id === "me" &&<NewProgram/>}
+        {(id === 'me' || id === user._id) && isloggedin && <NewProgram/>}
       <div className="products-div">
         {isloggedin === true && role === "pro" && id === 'me'
           ? user.programs.map((program) => <SingleProduct program={program} />)

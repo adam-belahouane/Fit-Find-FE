@@ -15,15 +15,16 @@ const ProHeader = () => {
   const[showHeader, setShowHeader] = useState(false)
   const [showPic, setShowPic] = useState(false)
 
-  let { firstName, lastname, jobrole, overallreview, avatar, headercolor, _id } =
+  let { firstName, lastname, jobrole, overallreview, avatar, headercolor } =
     userme === "me" ? user : prouser;
 
-  useEffect(() => {}, [prouser, user]);
+  useEffect(() => {
+  }, [prouser, user]);
 
   return (
     <>
       <div className="top-header" style={{"background-color": headercolor}}>
-        {(userme === 'me' || _id)  && isloggedin &&
+        {(userme === 'me' || userme === user._id)  && isloggedin &&
         <div className="top-header-pencil">
           <button className="edit-header-pic" onClick={() => setShowHeader(true)}>
         <svg
@@ -43,7 +44,7 @@ const ProHeader = () => {
       <div className="Pro-user-con">
         <div className="img-text">
           {avatar ? (
-           (userme === 'me' || _id) && isloggedin ? <img onClick={() => setShowPic(true)} style={{"cursor": "pointer"}} src={avatar} className="Pro-user-Image" /> : <img onClick={() => setShowPic(true)} src={avatar} className="Pro-user-Image" />
+           (userme === 'me' || userme === user._id) && isloggedin ? <img onClick={() => setShowPic(true)} style={{"cursor": "pointer"}} src={avatar} className="Pro-user-Image" /> : <img onClick={() => setShowPic(true)} src={avatar} className="Pro-user-Image" />
           ) : (
             <img
               onClick={() => setShowPic(true)}
@@ -51,9 +52,9 @@ const ProHeader = () => {
               className="Pro-user-Image"
             />
           )}
-          {(userme === 'me' || _id) && isloggedin &&
+          {(userme === 'me' || userme === user._id) && isloggedin &&
           <EditProfilePicModal show={showPic} setShow={setShowPic} avatar={avatar} />}
-          {(userme === 'me' || _id) && isloggedin &&
+          {(userme === 'me' || userme === user._id) && isloggedin &&
           <div className="edit-header-info">
             <button className="edit-header-info-btn" onClick={() => setShow(true)}>
           <svg

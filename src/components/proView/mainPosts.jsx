@@ -4,6 +4,7 @@ import SinglePost from "../SinglePost";
 import { useParams } from "react-router-dom";
 import NewPost from "./posts/NewPost";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const MainPosts = ({ setView }) => {
   const proUserId = useParams().userId;
@@ -13,8 +14,10 @@ const MainPosts = ({ setView }) => {
   let { firstName, lastname, jobrole, overallreview, avatar } =
   proUserId === "me" ? user : prouser;
 
-  let postsr = role === "pro" ? user.posts : prouser.posts;
+  let postsr = proUserId === 'me' ? user.posts : prouser.posts;
   const posts = postsr?[...postsr].reverse():''
+
+  useEffect(() => {}, [proUserId])
 
   return (
     <>
@@ -31,7 +34,7 @@ const MainPosts = ({ setView }) => {
           <h2 onClick={() => setView("Reviews")}>Reviews</h2>
         </Col>
       </Row>
-      {proUserId === 'me' && isloggedin && <NewPost
+      {(proUserId === 'me' || proUserId === user._id) && isloggedin && <NewPost
         First={firstName}
         Last={lastname}
         avatar={avatar}
