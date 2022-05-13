@@ -108,6 +108,48 @@ h3 {
   color: rgba(0,0,0,0.6);
 }
 
+.single-post-dropdown {
+  position: absolute;
+  right: 0;
+  z-index: 6;
+  padding: 5px 0;
+  background-color: white;
+  width: 200px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 6px 9px rgb(0 0 0 / 20%);
+}
+
+.single-post-dropdown > p {
+  color: black;
+  font-size: 18px;
+  padding: 0 20px;
+}
+
+.single-post-dropdown > p:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.dropdown-div {
+  position: relative;
+}
+
+.dotdot {
+  all: unset;
+  margin-top: -2vh;
+  margin-bottom: 2px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dotdot:hover, .dotdot:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 .modal {
   position: fixed;
   left: 0;
@@ -170,10 +212,6 @@ h3 {
   background-color: white;
   margin-bottom: 1vh;
   padding: 0 1vw;
-}
-
-.dotdot {
-  margin-right: 2vw;
 }
 
 @media only screen and (max-width: 992px) {

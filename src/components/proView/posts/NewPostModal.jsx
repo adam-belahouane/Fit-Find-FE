@@ -1,25 +1,25 @@
+import axios from "axios";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProUserAction } from "../../../actions";
 
-const NewPostModal = ({ first, last, avatar, setShow, show, getMe }) => {
+const NewPostModal = ({ setShow, show }) => {
   const url = process.env.REACT_APP_BE_URL;
   const [text, setText] = useState("");
+  const dispatch = useDispatch()
+  const {user} = useSelector((state) => state.login)
+  const {avatar, first, last} = user 
 
   const newPost = async () => {
     const body = {
       text: text,
     };
     try {
-      let response = await fetch(`${url}/posts/newPosts`, {
-        method: "POST",
-        body: JSON.stringify(body),
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      });
-
-      if (response.ok) {
+      let response = await axios.post(`${url}/posts/newPosts`, body);
+      if (response.status === 201) {
         console.log("success");
         setShow(false);
-        getMe();
+        dispatch(getProUserAction())
       } else {
         console.log("not success");
       }

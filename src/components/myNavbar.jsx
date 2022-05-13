@@ -1,18 +1,15 @@
-import { useEffect } from "react";
 import {
   Navbar,
   Container,
   NavDropdown,
-  Nav,
-  Button,
-  Form,
-  FormControl,
+  Nav
 } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import "../styles/homepage.css";
 import { setIsLoggedInAction, setRedirectAction, setRoleAction, setUserAction } from "../actions";
 import { useNavigate } from "react-router-dom";
 import logo from "../FFlogo.png"
+import axios from "axios";
 
 const MyNavbar = () => {
   const url = process.env.REACT_APP_BE_URL;
@@ -26,11 +23,8 @@ const MyNavbar = () => {
   const logout = async () => {
     if (role === "normal") {
       try {
-        const response = await fetch(`${url}/users/logout`, {
-          method: "POST",
-          credentials: "include",
-        });
-        if (response.ok) {
+        const response = await axios.post(`${url}/users/logout`);
+        if (response.status == 200) {
           console.log("ok");
           dispatch(setIsLoggedInAction(false));
           dispatch(setRoleAction(""));
@@ -45,11 +39,8 @@ const MyNavbar = () => {
       }
     } else {
       try {
-        const response = await fetch(`${url}/proUser/logout`, {
-          method: "POST",
-          credentials: "include",
-        });
-        if (response.ok) {
+        const response = await axios.post(`${url}/proUser/logout`, { withCredentials: true});
+        if (response.status == 200) {
           console.log("ok");
           dispatch(setIsLoggedInAction(false));
           dispatch(setRoleAction(""));
@@ -81,15 +72,6 @@ const MyNavbar = () => {
                 <NavDropdown.Item href="/signup">Sign up</NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            {/* <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>
@@ -111,15 +93,6 @@ const MyNavbar = () => {
               <Nav.Link href="/user/me">Profile</Nav.Link>:<Nav.Link href="/User/me/norm">profile</Nav.Link>}
               <Nav.Link onClick={() => logout()}>Log out</Nav.Link>
             </Nav>
-            {/* <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>

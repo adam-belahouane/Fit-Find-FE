@@ -24,16 +24,15 @@ const ProLoginPage = ({ setView }) => {
         headers: { "Content-Type": "application/json" },
         credentials: "include",
       });
-      if (response.ok) {
+      if (response.status === 200) {
         console.log("ok");
         dispatch(setIsLoggedInAction(true));
         dispatch(setRoleAction("pro"));
         dispatch(getProUserAction());
         navigate("/user/me", { replace: true });
-      }
+      } 
     } catch (error) {
       console.log(error);
-      alert("Wrong credentials, try again!");
     }
   }
 

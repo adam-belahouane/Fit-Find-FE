@@ -5,12 +5,11 @@ import { useEffect } from "react";
 import NewProgram from "../addPrograms/NewProgram";
 import { useParams } from "react-router-dom";
 
-const MainProducts = ({ setView, data }) => {
+const MainProducts = ({ setView }) => {
   const id = useParams().userId;
-  const programs = data.programs;
   const { user, role, isloggedin } = useSelector((state) => state.login);
+  const {prouser} = useSelector(state => state.prouser)
 
-  useEffect(() => {}, []);
   return (
     <>
       <Row className="mt-3 view-selector">
@@ -28,9 +27,9 @@ const MainProducts = ({ setView, data }) => {
       </Row>
         {role === "pro" && isloggedin === true && id === "me" &&<NewProgram/>}
       <div className="products-div">
-        {isloggedin === true && role === "pro"
+        {isloggedin === true && role === "pro" && id === 'me'
           ? user.programs.map((program) => <SingleProduct program={program} />)
-          : programs.map((program) => <SingleProduct program={program} />)}
+          : prouser.programs.map((program) => <SingleProduct program={program} />)}
       </div>
     </>
   );

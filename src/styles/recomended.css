@@ -1,6 +1,9 @@
 .rec-user {
     display: flex;
-
+    margin: 5px 0;
+}
+.rec-user:hover {
+    text-decoration: underline;
 }
 .rec-users-list {
     border: lightgray solid 1px;
@@ -10,22 +13,27 @@
     margin-left: 1vw;
     position: sticky;
     top: 7.5vh;
-    padding-bottom: 0.5vh;
+    padding: 5px 10px;
+    height: 300px;
+    overflow: hidden;
 }
 .rec-p {
     margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .rec-h5 {
-    margin-bottom: 0;
-    margin-top: 0.5vh;
+    margin: 0;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .rec-img {
-    margin-top: 0.5vh;
-    margin-left: 0.5vw;
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     object-fit: cover;
 }

@@ -44,6 +44,22 @@
   border: solid lightgray 1px;
 }
 
+.write-review-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: 2vh 2vw;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 600;
+}
+
+.write-review-btn:hover {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 1);
+}
+
 .modal {
   position: fixed;
   left: 0;
