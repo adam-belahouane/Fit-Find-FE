@@ -1,41 +1,62 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProUserAction } from "../../actions";
+import { getProUserAction, getUserAction } from "../../actions";
 
-const EditProfilePicModal = ({show, setShow, avatar}) => {
-    const[image, setImage] = useState(avatar)
-    const [imageFile, setImageFile] = useState(null)
-    const url = process.env.REACT_APP_BE_URL;
-    const dispatch = useDispatch()
-    const {role} = useSelector(state => state.login)
+const EditProfilePicModal = ({ show, setShow, avatar }) => {
+  const [image, setImage] = useState(avatar);
+  const [imageFile, setImageFile] = useState(null);
+  const url = process.env.REACT_APP_BE_URL;
+  const dispatch = useDispatch();
+  const { role } = useSelector((state) => state.login);
 
-    const onImageChange = (e) => {
-        setImage(URL.createObjectURL(e.target.files[0]))
-        setImageFile(e.target.files[0])
-    }
+  const onImageChange = (e) => {
+    setImage(URL.createObjectURL(e.target.files[0]));
+    setImageFile(e.target.files[0]);
+  };
 
-    const handleUserImageUpdate = async() => {
-        try {
-            let formData = new FormData()
-            formData.append("avatar", imageFile)
-            
-            let response = await fetch(url + "/proUser/profilePic/me", {
-                method: "POST",
-                body: formData,
-                credentials: "include",
-              });
-              if (response.ok) {
-                console.log("success");
-                setShow(false);
-                dispatch(getProUserAction())
-              } else {
-                console.log("not success");
-              }
-            
-        } catch (error) {
-            console.log(error);
+  const handleUserImageUpdate = async () => {
+    if(role === 'pro'){
+      try {
+        let formData = new FormData();
+        formData.append("avatar", imageFile);
+        let response = await fetch(url + "/proUser/profilePic/me", {
+          method: "POST",
+          body: formData,
+          credentials: "include",
+        });
+        if (response.ok) {
+          console.log("success");
+          setShow(false);
+          dispatch(getProUserAction());
+        } else {
+          console.log("not success");
         }
+      } catch (error) {
+        console.log(error);
+      }
+    }else{
+      try {
+        let formData = new FormData();
+        formData.append("avatar", imageFile);
+        let response = await fetch(url + "/users/profilePic/me", {
+          method: "POST",
+          body: formData,
+          credentials: "include",
+        });
+        if (response.ok) {
+          console.log("success");
+          setShow(false);
+          dispatch(getUserAction());
+        } else {
+          console.log("not success");
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
+    
+  };
+
   if (!show) {
     return null;
   }
@@ -65,19 +86,28 @@ const EditProfilePicModal = ({show, setShow, avatar}) => {
           </div>
         </div>
         <div className="modal-body">
-            <div className="editpic-upload">
-                {image?<img src={image} className="edit-user-Image" />:<img src="https://icon-library.com/images/anonymous-person-icon/anonymous-person-icon-18.jpg" className="edit-user-Image" />}
-                <input type="file" onChange={(e) => onImageChange(e)} />
-            </div>
+          <div className="editpic-upload">
+            {image ? (
+              <img src={image} className="edit-user-Image" />
+            ) : (
+              <img
+                src="https://icon-library.com/images/anonymous-person-icon/anonymous-person-icon-18.jpg"
+                className="edit-user-Image"
+              />
+            )}
+            <input type="file" onChange={(e) => onImageChange(e)} />
+          </div>
         </div>
         <div className="modal-footer">
           <div className="modal-btn-div">
-            <button className="small-blue-btn" onClick={handleUserImageUpdate}>Save</button>
+            <button className="small-blue-btn" onClick={handleUserImageUpdate}>
+              Save
+            </button>
           </div>
         </div>
       </div>
     </div>
-    )
-}
+  );
+};
 
-export default EditProfilePicModal
+export default EditProfilePicModal;

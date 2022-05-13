@@ -10,15 +10,14 @@ const NormalHeader = ({ data }) => {
   const [show, setShow] = useState(false);
   const [showHeader, setShowHeader] = useState(false);
   const [showPic, setShowPic] = useState(false);
-  const [headerColor, setHeaderColor] = useState("#4385f5");
-  const { firstName, lastname, avatar, city } = data;
+  const { firstName, lastname, city, avatar, headercolor } = data;
 
   useEffect(() => {
     console.log(isloggedin);
   }, [])
   return (
     <>
-      <div className="top-header" style={{ "background-color": headerColor }}>
+      <div className="top-header" style={{ "background-color": headercolor }}>
         {isloggedin && (
           <div className="top-header-pencil">
             <button
@@ -39,7 +38,6 @@ const NormalHeader = ({ data }) => {
             <EditHeaderPicModal
               showHeader={showHeader}
               setShowHeader={setShowHeader}
-              setHeaderColor={setHeaderColor}
             />
           </div>
         )}

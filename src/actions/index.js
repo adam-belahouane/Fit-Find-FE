@@ -1,4 +1,4 @@
-
+import axios from "axios";
 export const GET_LOGIN = "GET_LOGIN";
 export const GET_LOGIN_ERROR = "GET_LOGIN_ERROR";
 export const TOGGLE_LOADER = "TOGGLE_LOADER";
@@ -46,11 +46,9 @@ export const setProUserAction = (data) => ({
 export const getUserAction = () => {
   return async (dispatch) => {
     try {
-      let response = await fetch(url + "/users/me", {
-        credentials: "include",
-      });
-      if (response.ok) {
-        let data = await response.json();
+      let response = await axios.get(url + "/users/me");
+      if (response.status === 200) {
+        let data = response.data
         dispatch(setUserAction(data))
       }
     } catch (error) {

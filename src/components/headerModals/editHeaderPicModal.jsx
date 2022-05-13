@@ -1,15 +1,43 @@
+import axios from "axios";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProUserAction, getUserAction } from "../../actions";
 
-const EditHeaderPicModal = ({ showHeader, setShowHeader, setHeaderColor }) => {
-    const [color, setColor] = useState()
+const EditHeaderPicModal = ({ showHeader, setShowHeader }) => {
+  const url = process.env.REACT_APP_BE_URL
+  const{role} = useSelector(state => state.login.user)
+  const dispatch = useDispatch()
+    const [color, setColor] = useState('')
 
     const onColorPickerChange = (e) => {
         setColor(e.target.value);
     }
 
-    const handleHeaderChange = () => {
-        setHeaderColor(color)
-        setShowHeader(false)
+    const handleHeaderChange = async() => {
+      if(role === 'pro'){
+        try {
+          let response = await axios.put(url + "/proUser/headercolor", {color})
+          if(response.status === 203){
+            dispatch(getProUserAction())
+            setShowHeader(false)
+          } else{
+            console.log('try again');
+          }
+        } catch (error) {
+          console.log(error);
+        }}else{
+          try {
+            let response = await axios.put(url + "/users/headercolor", {color})
+            if(response.status === 203){
+              dispatch(getUserAction())
+              setShowHeader(false)
+            } else{
+              console.log('try again');
+            }
+          } catch (error) {
+            console.log(error);
+          }
+        }
     }
   if (!showHeader) {
     return null;
