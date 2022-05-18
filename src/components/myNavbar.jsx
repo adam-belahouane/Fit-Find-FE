@@ -5,15 +5,19 @@ import {
   Nav
 } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import "../styles/homepage.css";
+import "../styles/Navbar.css";
 import { setIsLoggedInAction, setRedirectAction, setRoleAction, setUserAction } from "../actions";
 import { useNavigate } from "react-router-dom";
 import logo from "../FFlogo.png"
 import axios from "axios";
+import { useState } from "react";
 
 const MyNavbar = () => {
   const url = process.env.REACT_APP_BE_URL;
   const navigate = useNavigate();
+
+  const [toggleMenu, setToggleMenu] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   const isLoggedIn = useSelector((state) => state.login.isloggedin);
   const role = useSelector((state) => state.login.role);
@@ -54,50 +58,67 @@ const MyNavbar = () => {
     }
   };
 
-  if (isLoggedIn === false) {
-    return (
-      <Navbar bg="light" className="nav-bar" expand="lg">
-        <Container fluid>
-          <Navbar.Brand href="/"><img src={logo} className="nav-img" /></Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
-              <Nav.Link href="/">Home</Nav.Link>
-              <NavDropdown title="Login" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="/login">Login</NavDropdown.Item>
-                <NavDropdown.Item href="/signup">Sign up</NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    );
-  } else {
-    return (
-      <Navbar bg="light" className="nav-bar" expand="lg">
-        <Container className="con-nav" fluid>
-          <Navbar.Brand href="#">Fit Find</Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
-              <Nav.Link href="/">Home</Nav.Link>
-              {role === 'pro' ?
-              <Nav.Link href="/user/me">Profile</Nav.Link>:<Nav.Link href="/User/me/norm">profile</Nav.Link>}
-              <Nav.Link onClick={() => logout()}>Log out</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    );
-  }
+
+
+  return(
+    <div className="nav-bar">
+      <div className="navbar-content">
+        <div className="logoandhome">
+          <img src={logo} className="nav-img" />
+          <a href="/" className="home-btn">Home</a>
+        </div>
+        <div className="signupandlogin">
+          <a href="/signup" className="Join-now-btn">Join now</a>
+          <a href="/login" className="Sign-in-btn">Sign in</a>
+        </div>
+      </div>
+    </div>
+  )
+
+  // if (isLoggedIn === false) {
+  //   return (
+  //     <Navbar bg="light" className="nav-bar" expand="lg">
+  //       <Container fluid>
+  //         <Navbar.Brand href="/"><img src={logo} className="nav-img" /></Navbar.Brand>
+  //         <Navbar.Toggle aria-controls="navbarScroll" />
+  //         <Navbar.Collapse id="navbarScroll">
+  //           <Nav
+  //             className="me-auto my-2 my-lg-0"
+  //             style={{ maxHeight: "100px" }}
+  //             navbarScroll
+  //           >
+  //             <Nav.Link href="/">Home</Nav.Link>
+  //             <NavDropdown title="Login" id="navbarScrollingDropdown">
+  //               <NavDropdown.Item href="/login">Login</NavDropdown.Item>
+  //               <NavDropdown.Item href="/signup">Sign up</NavDropdown.Item>
+  //             </NavDropdown>
+  //           </Nav>
+  //         </Navbar.Collapse>
+  //       </Container>
+  //     </Navbar>
+  //   );
+  // } else {
+  //   return (
+  //     <Navbar bg="light" className="nav-bar" expand="lg">
+  //       <Container className="con-nav" fluid>
+  //         <Navbar.Brand href="#">Fit Find</Navbar.Brand>
+  //         <Navbar.Toggle aria-controls="navbarScroll" />
+  //         <Navbar.Collapse id="navbarScroll">
+  //           <Nav
+  //             className="me-auto my-2 my-lg-0"
+  //             style={{ maxHeight: "100px" }}
+  //             navbarScroll
+  //           >
+  //             <Nav.Link href="/">Home</Nav.Link>
+  //             {role === 'pro' ?
+  //             <Nav.Link href="/user/me">Profile</Nav.Link>:<Nav.Link href="/User/me/norm">profile</Nav.Link>}
+  //             <Nav.Link onClick={() => logout()}>Log out</Nav.Link>
+  //           </Nav>
+  //         </Navbar.Collapse>
+  //       </Container>
+  //     </Navbar>
+  //   );
+  // }
 };
 
 export default MyNavbar;
