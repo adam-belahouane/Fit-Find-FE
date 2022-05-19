@@ -25,40 +25,39 @@
 }
 
 .logoandhome {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .home-btn {
-    all: unset;
-    margin-left: 12px;
-    padding: 0 12px;
-    font-size: 16px;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.5);
-    height: 40px;
-    line-height: 40px;
-    transition: all 0.5s;
-    cursor: pointer;
+  all: unset;
+  margin-left: 12px;
+  padding: 0 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.5);
+  height: 40px;
+  line-height: 40px;
+  transition: all 0.5s;
+  cursor: pointer;
 }
 
 .home-btn:hover {
-    color: rgba(0, 0, 0, 0.9);
-    background-color: rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 .navbar-content > .brand-name {
-    margin-right: 5px;
-    cursor: pointer;
+  margin-right: 5px;
+  cursor: pointer;
 }
 
 .signupandlogin {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-
 
 .navbar > .container-fluid {
   background-color: white;
@@ -66,41 +65,146 @@
 }
 
 .Join-now-btn {
-    text-decoration: none;
-    padding: 0 12px;
-    color: rgba(0, 0, 0, 0.6);
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    text-align: center;
-    margin-right: 12px;
-    height: 40px;
-    line-height: 40px;
-    transition: all 0.5s;
+  text-decoration: none;
+  padding: 0 12px;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  margin-right: 12px;
+  height: 40px;
+  line-height: 40px;
+  transition: all 0.5s;
 }
 
 .Join-now-btn:hover {
-    background-color: rgba(0, 0, 0, 0.08);
-    color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .Sign-in-btn {
-    all: unset;
-    padding: 0 24px;
-    cursor: pointer;
-    color: rgb(10, 102, 194);
-    font-size: 16px;
-    height: 40px;
-    line-height: 40px;
-    font-weight: 600;
-    border-radius: 2rem;
-    box-shadow: rgb(10, 102, 194) 0px 0px 0px 1px inset;
-    transition: all 0.5s;
+  all: unset;
+  padding: 0 24px;
+  cursor: pointer;
+  color: rgb(10, 102, 194);
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+  font-weight: 600;
+  border-radius: 2rem;
+  box-shadow: rgb(10, 102, 194) 0px 0px 0px 1px inset;
+  transition: all 0.5s;
 }
 
 .Sign-in-btn:hover {
-    background-color: rgba(112, 181, 249, 0.15);
-    box-shadow: rgb(10, 102, 194) 0px 0px 0px 2px inset;
+  background-color: rgba(112, 181, 249, 0.15);
+  box-shadow: rgb(10, 102, 194) 0px 0px 0px 2px inset;
+}
+
+.nav-user-img {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.nav-profile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.nav-profile:hover {
+  color: black;
+}
+
+.nav-dropdown-container {
+  position: absolute;
+  top: 6.5vh;
+  right: 0;
+  z-index: 6;
+  padding: 5px 0;
+  background-color: white;
+  width: 250px;
+  border-radius: 8px 0px 8px 8px;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 6px 9px rgb(0 0 0 / 20%);
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+}
+
+.userdetails {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.nav-name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.nav-nameandjob {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.nav-jobrole {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.dropdown-profilepic {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.view-profile-btn {
+  all: unset;
+  padding: 0 24px;
+  cursor: pointer;
+  color: rgb(10, 102, 194);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 2rem;
+  box-shadow: rgb(10, 102, 194) 0px 0px 0px 1px inset;
+  transition: all 0.5s;
+  text-align: center;
+  margin: 7px 10px;
+}
+
+.view-profile-btn:hover {
+  background-color: rgba(112, 181, 249, 0.15);
+  box-shadow: rgb(10, 102, 194) 0px 0px 0px 2px inset;
+}
+
+.signout {
+  border-top: solid 1px rgba(0, 0, 0, 0.5);
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.signout:hover {
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 992px) {
