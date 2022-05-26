@@ -10,7 +10,8 @@
   justify-content: center;
   position: sticky;
   top: 0;
-  height: 6.5vh;
+  min-height: 6.5vh;
+  height: 8.5vh;
   width: 100%;
   z-index: 10;
   background-color: white !important  ;
@@ -38,7 +39,8 @@
   font-weight: 600;
   color: rgba(0, 0, 0, 0.5);
   height: 40px;
-  line-height: 40px;
+  display: flex;
+  align-items: center;
   transition: all 0.5s;
   cursor: pointer;
 }
@@ -73,8 +75,7 @@
   font-weight: 600;
   text-align: center;
   margin-right: 12px;
-  height: 40px;
-  line-height: 40px;
+  max-height: 40px;
   transition: all 0.5s;
 }
 
@@ -89,8 +90,7 @@
   cursor: pointer;
   color: rgb(10, 102, 194);
   font-size: 16px;
-  height: 40px;
-  line-height: 40px;
+  max-height: 40px;
   font-weight: 600;
   border-radius: 2rem;
   box-shadow: rgb(10, 102, 194) 0px 0px 0px 1px inset;
@@ -103,10 +103,18 @@
 }
 
 .nav-user-img {
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.imageandme {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5px;
 }
 
 .nav-profile {
@@ -126,7 +134,7 @@
 
 .nav-dropdown-container {
   position: absolute;
-  top: 6.5vh;
+  top: 7.5vh;
   right: 0;
   z-index: 6;
   padding: 5px 0;
@@ -207,9 +215,28 @@
   text-decoration: underline;
 }
 
+.small-nav {
+  display: none;
+}
+
 @media only screen and (max-width: 992px) {
   .navbar-content {
     width: 720px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .navbar-content {
+    display: none;
+  }
+
+  .small-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
   }
 }
 
@@ -222,5 +249,19 @@
 @media only screen and (max-width: 576px) {
   .navbar-content {
     width: 95vw;
+  }
+}
+
+@media only screen and (max-height: 650px) {
+  .nav-dropdown-container {
+    top: 9vh;
+  }
+
+  .nav-user-img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: -5px;
   }
 }
