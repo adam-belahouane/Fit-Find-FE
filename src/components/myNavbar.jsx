@@ -68,6 +68,14 @@ const MyNavbar = () => {
     }
   };
 
+  const navigateToProfile = () => {
+    if(role === "pro"){
+      navigate("/user/me")
+    } else {
+      navigate("/user/me/norm")
+    }
+  }
+
   return (
     <>
     <div className="nav-bar">
@@ -123,21 +131,14 @@ const MyNavbar = () => {
                     )}
                   </div>
                 </div>
-                {role === "pro" ? (
+               
                   <button
                     className="view-profile-btn"
-                    onClick={() => navigate("/user/me")}
+                    onClick={navigateToProfile}
                   >
                     View Profile
                   </button>
-                ) : (
-                  <button
-                    className="view-profile-btn"
-                    onClick={() => navigate("/user/me/norm")}
-                  >
-                    View Profile
-                  </button>
-                )}
+                
                 <div className="signout" onClick={() => logout()}>
                   Sign Out
                 </div>
@@ -165,11 +166,11 @@ const MyNavbar = () => {
     {toggleMenu && 
     <div className="small-nav-open">
       <div className="small-nav-links">
-        <a href="">Home</a>
-        {isLoggedIn?<><a href="">View Profile</a>
-        <a href="">Sign Out</a>
-        </>:<><a href="">Join now</a>
-        <a href="">Sign in</a></>}
+        <a href="/">Home</a>
+        {isLoggedIn?<><a onClick={navigateToProfile}>View Profile</a>
+        <a onClick={logout}>Sign Out</a>
+        </>:<><a href="/signup">Join now</a>
+        <a href="/login">Sign in</a></>}
         
       </div>
     </div>}

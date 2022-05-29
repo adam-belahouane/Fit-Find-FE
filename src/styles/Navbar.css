@@ -217,6 +217,31 @@
 
 .small-nav {
   display: none;
+  
+}
+
+.small-nav-open {
+  position: fixed;
+  top: 8.5vh;
+  z-index: 10;
+  background-color: white;
+  width: 100vw;
+  transition: all 0.5s;
+}
+
+.small-nav-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 20px;
+}
+
+.small-nav-links > a {
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+  margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 992px) {
