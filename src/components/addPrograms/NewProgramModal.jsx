@@ -25,7 +25,7 @@ const NewProgramModal = ({ setShow, show }) => {
     try {
       let response = await axios.post(`${url}/program/newProgram`, program);
 
-      if (response.status === 200) {
+      if (response.status === 201) {
         console.log("success");
         setShow(false);
         dispatch(getProUserAction())

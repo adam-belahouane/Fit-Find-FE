@@ -8,7 +8,7 @@ import PuffLoader from "react-spinners/PuffLoader"
 const libraries = ["places"];
 const mapContainerStyle = {
   width: "100vw",
-  height: "93.5vh",
+  height: "91.5vh",
 };
 
 // { lat: 51.49844507, lng: -0.0774065 },
@@ -38,7 +38,7 @@ const HomePage = () => {
 
   const getAllProUsers = async () => {
     try {
-      let response = await fetch(url + "/proUser/getAll");
+      let response = await fetch(url + "/proUser/getAll/");
       if (response.ok) {
         let data = await response.json();
         console.log(data);

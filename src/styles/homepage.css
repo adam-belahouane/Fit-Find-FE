@@ -6,31 +6,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 93.5vh;
-}
-.search {
-  position: absolute;
-  z-index: 2;
-}
-
-.nav-img {
-  height: 5vh;
-  border-radius: 0.4rem;
-  border: solid lightgray 1px;
-}
-
-.nav-bar {
-  position: sticky;
-  top: 0;
-  height: 6.5vh;
-  width: 100%;
-  z-index: 10;
-  background-color: white !important  ;
-  border-bottom: solid rgba(0, 0, 0, 0.08) 1px !important;
-}
-
-.navbar > .container-fluid {
-  background-color: white;
+  height: 91.5vh;
 }
 
 .marker-con {
