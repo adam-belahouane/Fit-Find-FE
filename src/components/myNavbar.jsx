@@ -89,12 +89,15 @@ const MyNavbar = () => {
         {isLoggedIn ? (
           <div className="nav-profile" onClick={() => setShow(!show)}>
             <div className="imageandme">
-              <img
-                className="nav-user-img"
-                src={user.avatar}
-                alt=""
-                srcset=""
-              />
+            {!user.avatar?<img
+                    className="dropdown-profilepic"
+                    src="https://icon-library.com/images/anonymous-person-icon/anonymous-person-icon-18.jpg"
+                    alt="user-pic"
+                  />:<img
+                  className="dropdown-profilepic"
+                  src={user.avatar}
+                  alt="user-pic"
+                />}
               <span className="profile-dropdown">
                 Me
                 <svg
@@ -115,11 +118,15 @@ const MyNavbar = () => {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="userdetails">
-                  <img
+                  {!user.avatar?<img
                     className="dropdown-profilepic"
-                    src={user.avatar}
+                    src="https://icon-library.com/images/anonymous-person-icon/anonymous-person-icon-18.jpg"
                     alt="user-pic"
-                  />
+                  />:<img
+                  className="dropdown-profilepic"
+                  src={user.avatar}
+                  alt="user-pic"
+                />}
                   <div className="nav-nameandjob">
                     <p className="nav-name">
                       {user.firstName} {user.lastname}

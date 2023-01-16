@@ -11,7 +11,6 @@ const MainReviews = ({ setView }) => {
   const {prouser} = useSelector(state => state.prouser)
 
   let reviews = userme === "me" ? user.reviews : prouser.reviews;
-  const reviewsr = [...reviews].reverse()
   
 
   useEffect(() => {
@@ -33,7 +32,7 @@ const MainReviews = ({ setView }) => {
         </Col>
       </Row>
       {role === "pro"?<></>:<NewReview />}
-      {reviewsr.map((review) => (
+      {reviews && reviews.map((review) => (
         <SingleReview review={review} key={review._id} />
       ))}
     </>
