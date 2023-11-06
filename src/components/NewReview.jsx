@@ -6,7 +6,7 @@ const NewReview = () => {
   const[review, setReview] = useState({
     title: "",
     maintext: "",
-    ratingNum: ""
+    ratingNum: null
   })
 
   const ratingChange = (newValue) => {
@@ -23,7 +23,7 @@ const NewReview = () => {
         <h6 className="write-review-btn" onClick={() => setShow(true)}>Write Review</h6>
         <Rating
           name="half-rating"
-          Value={review.ratingNum}
+          value={review.ratingNum}
           onChange={(event, newValue) => {
             ratingChange(newValue);
           }}

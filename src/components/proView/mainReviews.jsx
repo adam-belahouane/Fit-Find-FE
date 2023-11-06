@@ -1,7 +1,7 @@
 import { Col, Row } from "react-bootstrap";
 import NewReview from "../NewReview";
 import SingleReview from "./SingleReview";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 

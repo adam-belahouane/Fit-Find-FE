@@ -1,13 +1,21 @@
 import "../styles/homepage.css";
 import Rating from "@mui/material/Rating";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-const MarkerDiv = ({ First, Last, Job, bio, profilePic, RatingNum, userId }) => {
-  useEffect(() => {
-    console.log(First);
-  }, []);
+
+const MarkerDiv = ({
+  First,
+  Last,
+  Job,
+  bio,
+  profilePic,
+  RatingNum,
+  userId,
+}) => {
   return (
-    <Link to={`/user/${userId}`} style={{ "text-decoration": "none", color: "unset" }}>
+    <Link
+      to={`/user/${userId}`}
+      style={{ "textDecoration": "none", color: "unset" }}
+    >
       <div className="marker-con">
         {profilePic ? (
           <img src={profilePic} className="marker-img" />

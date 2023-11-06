@@ -18,12 +18,11 @@ const ProHeader = () => {
   let { firstName, lastname, jobrole, overallreview, avatar, headercolor } =
     userme === "me" ? user : prouser;
 
-  useEffect(() => {
-  }, [prouser, user]);
+  
 
   return (
     <>
-      <div className="top-header" style={{"background-color": headercolor}}>
+      <div className="top-header" style={{"backgroundColor": headercolor}}>
         {(userme === 'me' || userme === user._id)  && isloggedin &&
         <div className="top-header-pencil">
           <button className="edit-header-pic" onClick={() => setShowHeader(true)}>

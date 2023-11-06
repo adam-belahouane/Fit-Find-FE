@@ -33,7 +33,7 @@ const RecommendUsers = () => {
   return (
     <div className="rec-users-list">
       {users.map((user) => (
-        <Link to={`/user/${user._id}`} style={{ "text-decoration": "none", color: "unset" }} >
+        <Link key={user._id} to={`/user/${user._id}`} style={{ "textDecoration": "none", color: "unset" }} >
         <div className="rec-user">
           <img src={user.avatar} className="rec-img" />
           <div className="mx-2">

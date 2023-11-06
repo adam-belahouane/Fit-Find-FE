@@ -29,7 +29,7 @@ const MainProducts = ({ setView }) => {
       <div className="products-div">
         {isloggedin === true && role === "pro" && id === 'me'
           ? user.programs.map((program) => <SingleProduct program={program} />)
-          : prouser.programs && prouser.programs.length > 0 && prouser.programs.map((program) => <SingleProduct program={program} />)}
+          : prouser.programs && prouser.programs.length > 0 && prouser.programs.map((program) => <SingleProduct program={program} key={program._id}/>)}
       </div>
     </>
   );

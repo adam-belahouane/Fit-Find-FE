@@ -2,30 +2,18 @@ import { useEffect, useState } from "react";
 import GoogleMapReact from "google-map-react";
 import "../styles/homepage.css";
 import MarkerDiv from "./markerDiv";
-import {css} from "@emotion/react"
-import PuffLoader from "react-spinners/PuffLoader"
+import PuffLoader from "react-spinners/PuffLoader";
 
-const libraries = ["places"];
 const mapContainerStyle = {
   width: "100vw",
   height: "91.5vh",
 };
-
-// { lat: 51.49844507, lng: -0.0774065 },
-//     { lat: 51.4895625, lng: -0.07645 },
-//     { lat: 51.5020668, lng: -0.12152762 },
 
 const options = {
   enableHighAccuracy: true,
   timeout: 5000,
   maximumAge: 0,
 };
-
-const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-`;
 
 const HomePage = () => {
   const url = process.env.REACT_APP_BE_URL;
@@ -35,19 +23,6 @@ const HomePage = () => {
     lat: 51.509865,
     lng: -0.118092,
   });
-
-  const getAllProUsers = async () => {
-    try {
-      let response = await fetch(url + "/proUser/getAll/");
-      if (response.ok) {
-        let data = await response.json();
-        console.log(data);
-        setMarkers(data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   function success(pos) {
     let crd = pos.coords;
@@ -63,12 +38,28 @@ const HomePage = () => {
   }
 
   useEffect(() => {
+    const getAllProUsers = async () => {
+      try {
+        let response = await fetch(url + "/proUser/getAll/");
+        if (response.ok) {
+          let data = await response.json();
+          setMarkers(data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     navigator.geolocation.getCurrentPosition(success, error, options);
     getAllProUsers();
   }, []);
 
   if (markers.length === 0) {
-    return <div className="loader"><PuffLoader color="blue" loading={true} size={150}/></div> ;
+    return (
+      <div className="loader">
+        <PuffLoader color="blue" loading={true} size={150} />
+      </div>
+    );
   } else {
     return (
       <div style={mapContainerStyle}>
@@ -77,10 +68,11 @@ const HomePage = () => {
           defaultCenter={center}
           center={center}
           defaultZoom={14}
-          onChildClick={""}
+          onChildClick={() => {}}
         >
           {markers.map((marker) => (
             <MarkerDiv
+              key={marker._id}
               lat={marker.lat}
               lng={marker.lng}
               First={marker.firstName}
@@ -99,18 +91,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-{
-  /* <GoogleMap 
-            mapContainerStyle={mapContainerStyle}
-            zoom={8}
-            center={center}>
-                {markers.map(marker => <Marker position={{ lat: marker.lat, lng: marker.lng}} icon={{ url: "./markerDiv"}}/>)}
-            </GoogleMap> */
-}
-// </div>
-
-// <div className="con">
-{
-  /* <input className="search"></input> */
-}
